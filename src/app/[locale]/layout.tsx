@@ -1,4 +1,3 @@
-import {ReactNode} from 'react'
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import {config} from '@/config'
@@ -7,6 +6,7 @@ import {ThemeProvider} from '@/components'
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
 import {cn} from '@/utils'
+import {IParamsLocaleChildren} from '@/types'
 import './globals.css'
 
 const {title, url} = config
@@ -65,13 +65,7 @@ export function generateStaticParams() {
   return locales.map(locale => ({locale}))
 }
 
-export default function RootLayout({
-  children,
-  params: {locale}
-}: Readonly<{
-  children: ReactNode
-  params: {locale: string}
-}>) {
+export default function RootLayout({children, params: {locale}}: IParamsLocaleChildren) {
   const messages = useMessages()
   unstable_setRequestLocale(locale)
 

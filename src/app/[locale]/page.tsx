@@ -1,8 +1,8 @@
 import Home from '@/modules/home'
 import {unstable_setRequestLocale} from 'next-intl/server'
-import {IPage} from '@/types'
+import {IParamsLocale} from '@/types'
 
-const HomePage = ({params: {locale}}: IPage) => {
+const HomePage = ({params: {locale}}: IParamsLocale) => {
   unstable_setRequestLocale(locale)
   return <Home />
 }
