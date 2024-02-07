@@ -1,11 +1,15 @@
-import {ReactNode} from 'react'
-import type {Metadata} from 'next'
+import type {Metadata, Viewport} from 'next'
 import {Inter} from 'next/font/google'
 import {config} from '@/config'
 import {keywords, description, authors, locales} from '@/data'
+import {ThemeProvider} from '@/components'
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
+import {ThemeSwitcher} from '@/components/theme-switcher'
+import {cn} from '@/utils'
+import {IParamsLocaleChildren} from '@/types'
 import './globals.css'
+import {LanguageSwitcher} from '@/components/language-switcher'
 
 const {title, url} = config
 const inter = Inter({subsets: ['latin']})
@@ -34,7 +38,8 @@ export const metadata: Metadata = {
   category: description,
   appleWebApp: {
     title: title,
-    statusBarStyle: 'default'
+    statusBarStyle: 'black-translucent',
+    capable: true
   },
   icons: {
     icon: [
@@ -59,25 +64,43 @@ export const metadata: Metadata = {
   }
 }
 
-export function generateStaticParams() {
+export const viewport: Viewport = {
+  themeColor: 'currentColor',
+  maximumScale: 1,
+  minimumScale: 1,
+  userScalable: false
+}
+
+export const generateStaticParams = () => {
   return locales.map(locale => ({locale}))
 }
 
-export default function RootLayout({
-  children,
-  params: {locale}
-}: Readonly<{
-  children: ReactNode
-  params: {locale: string}
-}>) {
+const Layout = ({children, params: {locale}}: IParamsLocaleChildren) => {
   const messages = useMessages()
   unstable_setRequestLocale(locale)
 
   return (
-    <html lang={locale}>
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning>
+      <body
+        className={cn('bg-background text-foreground min-h-screen antialiased', inter.className)}>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider
+            attribute={'class'}
+            defaultTheme={'system'}
+            enableSystem
+            disableTransitionOnChange>
+            <div className={'fixed right-4 top-4'}>
+              <div className={'flex shrink-0 flex-row gap-2'}>
+                <LanguageSwitcher />
+                <ThemeSwitcher />
+              </div>
+            </div>
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
 }
+
+export default Layout

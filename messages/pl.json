@@ -1,5 +1,10 @@
 {
+  "Theme": {
+    "light": "Jasny",
+    "dark": "Ciemny",
+    "system": "Systemowy"
+  },
   "Home": {
-    "mytitle": "To jest test"
+    "title": "Strona główna"
   }
 }
