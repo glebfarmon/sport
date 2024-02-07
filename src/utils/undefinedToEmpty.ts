@@ -1,9 +1,9 @@
-interface TObj<T> {
+interface IObj<T> {
   [key: string]: T
 }
 
-export const undefinedToEmpty = (obj: TObj<string | undefined>) => {
-  const newObj: TObj<string> = {}
+export const undefinedToEmpty = (obj: IObj<string | undefined>) => {
+  const newObj: IObj<string> = {}
   for (const key in obj) {
     newObj[key] = obj[key] ?? ''
   }

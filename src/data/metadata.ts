@@ -1,4 +1,4 @@
-export const keywords = [
+export const keywords: string[] = [
   'Exercise tracking',
   'Fitness data recording',
   'Workout analytics',
@@ -20,3 +20,10 @@ export const keywords = [
   'Workout data management',
   'Health and fitness analytics'
 ]
+
+export const description = 'Record your exercise statistics'
+
+export const authors = {
+  name: 'Hlib Ilnytsky',
+  url: 'https://github.com/glebfarmon'
+}
