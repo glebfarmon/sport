@@ -6,6 +6,7 @@ import {keywords, description, authors, locales} from '@/data'
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
 import './globals.css'
+import {ThemeProvider} from '@/components'
 
 const {title, url} = config
 const inter = Inter({subsets: ['latin']})
@@ -74,9 +75,13 @@ export default function RootLayout({
   unstable_setRequestLocale(locale)
 
   return (
-    <html lang={locale}>
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning>
+      <body className={`dark:bg-black dark:text-white ${inter.className}`}>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider attribute={'class'} defaultTheme={'system'} enableSystem>
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
