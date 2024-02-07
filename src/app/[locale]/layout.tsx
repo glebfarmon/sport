@@ -3,10 +3,11 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import {config} from '@/config'
 import {keywords, description, authors, locales} from '@/data'
+import {ThemeProvider} from '@/components'
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
+import {cn} from '@/utils'
 import './globals.css'
-import {ThemeProvider} from '@/components'
 
 const {title, url} = config
 const inter = Inter({subsets: ['latin']})
@@ -76,7 +77,8 @@ export default function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`dark:bg-black dark:text-white ${inter.className}`}>
+      <body
+        className={cn('bg-background text-foreground min-h-screen antialiased', inter.className)}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute={'class'} defaultTheme={'system'} enableSystem>
             {children}
