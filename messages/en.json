@@ -1,5 +1,10 @@
 {
+  "Theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
   "Home": {
-    "mytitle": "This is a test"
+    "title": "Main page"
   }
 }

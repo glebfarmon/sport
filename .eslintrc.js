@@ -10,7 +10,8 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'prettier',
     'plugin:testing-library/react',
-    'plugin:playwright/recommended'
+    'plugin:playwright/recommended',
+    'plugin:tailwindcss/recommended'
   ],
   settings: {
     react: {

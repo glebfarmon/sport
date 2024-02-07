@@ -5,9 +5,11 @@ import {keywords, description, authors, locales} from '@/data'
 import {ThemeProvider} from '@/components'
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
+import {ThemeSwitcher} from '@/components/theme-switcher'
 import {cn} from '@/utils'
 import {IParamsLocaleChildren} from '@/types'
 import './globals.css'
+import {LanguageSwitcher} from '@/components/language-switcher'
 
 const {title, url} = config
 const inter = Inter({subsets: ['latin']})
@@ -69,11 +71,11 @@ export const viewport: Viewport = {
   userScalable: false
 }
 
-export function generateStaticParams() {
+export const generateStaticParams = () => {
   return locales.map(locale => ({locale}))
 }
 
-export default function RootLayout({children, params: {locale}}: IParamsLocaleChildren) {
+const Layout = ({children, params: {locale}}: IParamsLocaleChildren) => {
   const messages = useMessages()
   unstable_setRequestLocale(locale)
 
@@ -82,7 +84,17 @@ export default function RootLayout({children, params: {locale}}: IParamsLocaleCh
       <body
         className={cn('bg-background text-foreground min-h-screen antialiased', inter.className)}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider attribute={'class'} defaultTheme={'system'} enableSystem>
+          <ThemeProvider
+            attribute={'class'}
+            defaultTheme={'system'}
+            enableSystem
+            disableTransitionOnChange>
+            <div className={'fixed right-4 top-4'}>
+              <div className={'flex shrink-0 flex-row gap-2'}>
+                <LanguageSwitcher />
+                <ThemeSwitcher />
+              </div>
+            </div>
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
@@ -90,3 +102,5 @@ export default function RootLayout({children, params: {locale}}: IParamsLocaleCh
     </html>
   )
 }
+
+export default Layout
