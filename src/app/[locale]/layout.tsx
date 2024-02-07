@@ -1,4 +1,4 @@
-import type {Metadata} from 'next'
+import type {Metadata, Viewport} from 'next'
 import {Inter} from 'next/font/google'
 import {config} from '@/config'
 import {keywords, description, authors, locales} from '@/data'
@@ -36,7 +36,8 @@ export const metadata: Metadata = {
   category: description,
   appleWebApp: {
     title: title,
-    statusBarStyle: 'default'
+    statusBarStyle: 'black-translucent',
+    capable: true
   },
   icons: {
     icon: [
@@ -59,6 +60,13 @@ export const metadata: Metadata = {
       url: '/favicons/favicon.ico'
     }
   }
+}
+
+export const viewport: Viewport = {
+  themeColor: 'currentColor',
+  maximumScale: 1,
+  minimumScale: 1,
+  userScalable: false
 }
 
 export function generateStaticParams() {
