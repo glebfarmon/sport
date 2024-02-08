@@ -6,5 +6,34 @@
   },
   "Home": {
     "title": "Main page"
+  },
+  "Errors": {
+    "min_length": "{name} must be at least {count, plural, one {# character} other {# characters}} long",
+    "max_length": "{name} must be a maximum of {count, plural, one {# character} other {# characters}}",
+    "not_matching": "{name} don't match",
+    "alphabets": "{name} should contain only alphabets",
+    "full_name": "Please enter both firstname and lastname",
+    "strict": "Use Latin, numbers and some special characters"
+  },
+  "Auth": {
+    "Login": {
+      "title": "Login page",
+      "greeting": "Login to account",
+      "subgreeting": "Enter your credentials below to log in to your account"
+    },
+    "Register": {
+      "title": "Register page",
+      "greeting": "Create an account",
+      "subgreeting": "Enter your credentials below to create your account"
+    },
+    "Form": {
+      "full_name": "Full name",
+      "username": "Username",
+      "password": "Password",
+      "passwords": "Passwords",
+      "repeat_password": "Repeat password",
+      "login": "Login",
+      "register": "Register"
+    }
   }
 }

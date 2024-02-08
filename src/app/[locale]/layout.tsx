@@ -2,14 +2,12 @@ import type {Metadata, Viewport} from 'next'
 import {Inter} from 'next/font/google'
 import {config} from '@/config'
 import {keywords, description, authors, locales} from '@/data'
-import {ThemeProvider} from '@/components'
+import {ThemeProvider, ThemeSwitcher, LanguageSwitcher} from '@/components'
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
-import {ThemeSwitcher} from '@/components/theme-switcher'
-import {cn} from '@/utils'
 import {IParamsLocaleChildren} from '@/types'
+import {cn} from '@/utils'
 import './globals.css'
-import {LanguageSwitcher} from '@/components/language-switcher'
 
 const {title, url} = config
 const inter = Inter({subsets: ['latin']})
@@ -81,8 +79,7 @@ const Layout = ({children, params: {locale}}: IParamsLocaleChildren) => {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body
-        className={cn('bg-background text-foreground min-h-screen antialiased', inter.className)}>
+      <body className={cn('min-h-screen antialiased', inter.className)}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute={'class'}

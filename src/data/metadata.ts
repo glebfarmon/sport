@@ -21,9 +21,9 @@ export const keywords: string[] = [
   'Health and fitness analytics'
 ]
 
-export const description = 'Record your exercise statistics'
+export const description: string = 'Record your exercise statistics'
 
-export const authors = {
+export const authors: Record<string, string> = {
   name: 'Hlib Ilnytsky',
   url: 'https://github.com/glebfarmon'
 }

@@ -6,5 +6,34 @@
   },
   "Home": {
     "title": "Strona główna"
+  },
+  "Errors": {
+    "min_length": "{name} ma zawierać co najmniej {count, plural, one {# znak} few {# znaki} other {# znaków}}",
+    "max_length": "{name} ma zawierać maksymalnie {count, plural, one {# znak} few {# znaki} other {# znaków}}",
+    "not_matching": "{name} nie są zgodne",
+    "alphabets": "{name} ma zawierać tylko litery",
+    "full_name": "Wprowadź imię i nazwisko",
+    "strict": "Używaj alfabetu łacińskiego, cyfr i niektórych znaków specjalnych"
+  },
+  "Auth": {
+    "Login": {
+      "title": "Strona logowania",
+      "greeting": "Zaloguj się do konta",
+      "subgreeting": "Wpisz swoje dane poniżej, aby się zalogować do swojego konta"
+    },
+    "Register": {
+      "title": "Strona rejestracji",
+      "greeting": "Stwórz konto",
+      "subgreeting": "Wpisz swoje dane poniżej, aby utworzyć nowe konto"
+    },
+    "Form": {
+      "full_name": "Imię i nazwisko",
+      "username": "Nazwa użytkownika",
+      "password": "Hasło",
+      "passwords": "Hasła",
+      "repeat_password": "Powtórz hasło",
+      "login": "Zaloguj się",
+      "register": "Zarejestruj się"
+    }
   }
 }

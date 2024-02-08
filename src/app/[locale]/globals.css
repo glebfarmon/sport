@@ -79,4 +79,11 @@
   .text-balance {
     text-wrap: balance;
   }
+  .input-autofill {
+    &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+      box-shadow: 0 0 0 30px hsl(var(--background)) inset;
+      border-color: hsl(var(--input));
+      -webkit-text-fill-color: hsl(var(--foreground));
+    }
+  }
 }
