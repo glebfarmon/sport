@@ -5,6 +5,7 @@ import {keywords, description, authors, locales} from '@/data'
 import {ThemeProvider, ThemeSwitcher, LanguageSwitcher} from '@/components'
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
+import {Toaster} from '@/components/ui/toaster'
 import {IParamsLocaleChildren} from '@/types'
 import {cn} from '@/utils'
 import './globals.css'
@@ -92,6 +93,7 @@ const Layout = ({children, params: {locale}}: IParamsLocaleChildren) => {
                 <ThemeSwitcher />
               </div>
             </div>
+            <Toaster />
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>

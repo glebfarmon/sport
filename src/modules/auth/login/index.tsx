@@ -46,7 +46,7 @@ export const Login = () => {
 
   const formData: IFormData<keyof z.infer<typeof formSchema>>[] = useMemo(
     () => [
-      {name: 'username', placeholder: 'glebfarmon', type: 'text', autocomplete: 'username'},
+      {name: 'username', placeholder: 'fernstalk', type: 'text', autocomplete: 'username'},
       {name: 'password', placeholder: '123456', type: 'password', autocomplete: 'new-password'}
     ],
     [formSchema]

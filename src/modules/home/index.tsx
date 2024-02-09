@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const Home = () => {
   return (
     <div className={'container'}>
+      <p></p>
       <div className={'grid h-screen place-items-center'}>
         <div className={'flex flex-col items-center space-y-[3vw]'}>
           <p

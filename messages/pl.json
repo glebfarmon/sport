@@ -13,7 +13,8 @@
     "not_matching": "{name} nie są zgodne",
     "alphabets": "{name} ma zawierać tylko litery",
     "full_name": "Wprowadź imię i nazwisko",
-    "strict": "Używaj alfabetu łacińskiego, cyfr i niektórych znaków specjalnych"
+    "strict": "Używaj alfabetu łacińskiego, cyfr i niektórych znaków specjalnych",
+    "recaptcha": "Weryfikacja nie powiodła się, spróbuj ponownie"
   },
   "Auth": {
     "Login": {

@@ -8,6 +8,8 @@ import {Button} from '@/components/ui/button'
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 import {Input} from '@/components/ui/input'
 import {useTranslations} from 'next-intl'
+import {useReCaptcha} from 'next-recaptcha-v3'
+import {toast} from '@/components/ui/use-toast'
 import Link from 'next/link'
 
 interface IFormData<T> {
@@ -19,6 +21,7 @@ interface IFormData<T> {
 
 export const Register = () => {
   const [t, e] = [useTranslations('Auth'), useTranslations('Errors')]
+  const {error, executeRecaptcha} = useReCaptcha()
 
   const formSchema = useMemo(
     () =>
@@ -66,7 +69,7 @@ export const Register = () => {
   const formData: IFormData<keyof z.infer<typeof formSchema>>[] = useMemo(
     () => [
       {name: 'full_name', placeholder: 'Troy Walker', type: 'text', autocomplete: 'name'},
-      {name: 'username', placeholder: 'glebfarmon', type: 'text', autocomplete: 'username'},
+      {name: 'username', placeholder: 'fernstalk', type: 'text', autocomplete: 'username'},
       {name: 'password', placeholder: '123456', type: 'password', autocomplete: 'new-password'},
       {
         name: 'repeat_password',
@@ -89,10 +92,18 @@ export const Register = () => {
   })
 
   const onSubmit = useCallback(
-    (values: z.infer<typeof formSchema>) => {
-      console.log(values)
+    async (values: z.infer<typeof formSchema>) => {
+      if(!executeRecaptcha) {
+        toast({
+          title: 'Google ReCaptcha',
+          description: e('recaptcha'),
+          variant: 'destructive'
+        })
+        return
+      }
+      const token = await executeRecaptcha('register_submit')
     },
-    [formSchema]
+    [formSchema, executeRecaptcha]
   )
 
   return (

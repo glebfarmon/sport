@@ -13,7 +13,8 @@
     "not_matching": "{name} don't match",
     "alphabets": "{name} should contain only alphabets",
     "full_name": "Please enter both firstname and lastname",
-    "strict": "Use Latin, numbers and some special characters"
+    "strict": "Use Latin, numbers and some special characters",
+    "recaptcha": "Verification failed, please try again"
   },
   "Auth": {
     "Login": {
