@@ -40,8 +40,8 @@
       "register": "Register"
     }
   },
-  "Cabinet": {
-    "title": "Cabinet",
-    "goto": "Go to cabinet"
+  "Panel": {
+    "title": "Panel",
+    "goto": "Go to panel"
   }
 }

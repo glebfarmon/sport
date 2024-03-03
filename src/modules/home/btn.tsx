@@ -20,7 +20,7 @@ export const HomeButton = () => {
 			{isFetching ? (
 				<Skeleton className={'h-[15px] w-[100px] rounded-full'} />
 			) : data ? (
-				<Link href={PAGES.CABINET}>{t('Cabinet.goto')}</Link>
+				<Link href={PAGES.PANEL}>{t('Panel.goto')}</Link>
 			) : (
 				<Link href={PAGES.LOGIN}>{t('Auth.Login.goto')}</Link>
 			)}

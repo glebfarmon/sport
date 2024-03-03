@@ -1,17 +1,17 @@
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server'
 import {IParamsLocale} from '@/models'
-import {Cabinet} from '@/modules/cabinet'
+import {Panel} from '@/modules/panel'
 
 export const generateMetadata = async ({params: {locale}}: IParamsLocale) => {
-	const t = await getTranslations({locale, namespace: 'Cabinet'})
+	const t = await getTranslations({locale, namespace: 'Panel'})
 	return {
 		title: t('title')
 	}
 }
 
-const CabPage = ({params: {locale}}: IParamsLocale) => {
+const PanelPage = ({params: {locale}}: IParamsLocale) => {
 	unstable_setRequestLocale(locale)
-	return <Cabinet />
+	return <Panel />
 }
 
-export default CabPage
+export default PanelPage

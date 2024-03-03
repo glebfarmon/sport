@@ -28,7 +28,7 @@ export const useSubmit = (formSchema: ReturnType<typeof useFormSchema>) => {
 			registerUser({full_name, username, password, token})
 				.unwrap()
 				.then(() => {
-					toast({description: t('Index.success')})
+					toast({description: t('Register.success')})
 					push(PAGES.HOME)
 				})
 		},
