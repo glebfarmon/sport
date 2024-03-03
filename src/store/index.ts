@@ -12,5 +12,6 @@ export const makeStore = (initialState = {}) =>
 		middleware: getDefaultMiddleware => getDefaultMiddleware().concat(mainApi.middleware)
 	})
 
-export type RootStore = ReturnType<typeof makeStore>
-export type RootState = ReturnType<RootStore['getState']>
+export type AppStore = ReturnType<typeof makeStore>
+export type RootState = ReturnType<AppStore['getState']>
+export type AppDispatch = AppStore['dispatch']
