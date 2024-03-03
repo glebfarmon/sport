@@ -8,10 +8,10 @@
     "title": "Strona główna"
   },
   "Errors": {
-    "min_length": "{name} ma zawierać co najmniej {count, plural, one {# znak} few {# znaki} other {# znaków}}",
-    "max_length": "{name} ma zawierać maksymalnie {count, plural, one {# znak} few {# znaki} other {# znaków}}",
-    "not_matching": "{name} nie są zgodne",
-    "alphabets": "{name} ma zawierać tylko litery",
+    "min_length": "{property} ma zawierać co najmniej {count, plural, one {# znak} few {# znaki} other {# znaków}}",
+    "max_length": "{property} ma zawierać maksymalnie {count, plural, one {# znak} few {# znaki} other {# znaków}}",
+    "not_matching": "{property} nie są zgodne",
+    "alphabets": "{property} ma zawierać tylko litery",
     "full_name": "Wprowadź imię i nazwisko",
     "strict": "Używaj alfabetu łacińskiego, cyfr i niektórych znaków specjalnych",
     "recaptcha": "Weryfikacja nie powiodła się, spróbuj ponownie"
@@ -20,12 +20,15 @@
     "Login": {
       "title": "Strona logowania",
       "greeting": "Zaloguj się do konta",
-      "subgreeting": "Wpisz swoje dane poniżej, aby się zalogować do swojego konta"
+      "subgreeting": "Wpisz swoje dane poniżej, aby się zalogować do swojego konta",
+      "success": "Zalogowano pomyślnie",
+      "goto": "Zaloguj się do konta"
     },
     "Register": {
       "title": "Strona rejestracji",
       "greeting": "Stwórz konto",
-      "subgreeting": "Wpisz swoje dane poniżej, aby utworzyć nowe konto"
+      "subgreeting": "Wpisz swoje dane poniżej, aby utworzyć nowe konto",
+      "success": "Pomyślnie zarejestrowano i zalogowano"
     },
     "Form": {
       "full_name": "Imię i nazwisko",
@@ -36,5 +39,9 @@
       "login": "Zaloguj się",
       "register": "Zarejestruj się"
     }
+  },
+  "Cabinet": {
+    "title": "Panel",
+    "goto": "Przejdź do panelu"
   }
 }
