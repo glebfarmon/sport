@@ -1,24 +1,20 @@
 import {useTranslations} from 'next-intl'
-import {z} from 'zod'
+import {maxLength, minLength, object, Output, string} from 'valibot'
 
 export const useFormSchema = () => {
-	const [t, e] = [useTranslations('Auth'), useTranslations('Errors')]
-	return z.object({
-		username: z
-			.string()
-			.min(2, {
-				message: e('min_length', {property: t('Form.username'), count: 2})
-			})
-			.max(32, {
-				message: e('max_length', {property: t('Form.username'), count: 32})
-			}),
-		password: z
-			.string()
-			.min(6, {
-				message: e('min_length', {property: t('Form.password'), count: 6})
-			})
-			.max(64, {
-				message: e('max_length', {property: t('Form.password'), count: 64})
-			})
+	const t = useTranslations()
+
+	return object({
+		username: string([
+			minLength(2, t('Errors.min_length', {property: t('Auth.Form.username'), count: 2})),
+			maxLength(32, t('Errors.max_length', {property: t('Auth.Form.username'), count: 32}))
+		]),
+		password: string([
+			minLength(6, t('Errors.min_length', {property: t('Auth.Form.password'), count: 6})),
+			maxLength(64, t('Errors.max_length', {property: t('Auth.Form.password'), count: 64}))
+		])
 	})
 }
+
+export type TFormSchema = ReturnType<typeof useFormSchema>
+export type TOutputFormSchema = Output<TFormSchema>

@@ -1,50 +1,45 @@
 import {useTranslations} from 'next-intl'
-import {z} from 'zod'
+import {custom, forward, maxLength, minLength, object, Output, regex, string} from 'valibot'
 
 export const useFormSchema = () => {
-	const [t, e] = [useTranslations('Auth'), useTranslations('Errors')]
-	return z
-		.object({
-			full_name: z
-				.string()
-				.min(3, {
-					message: e('min_length', {property: t('Form.full_name'), count: 3})
-				})
-				.max(48, {
-					message: e('max_length', {property: t('Form.full_name'), count: 48})
-				})
-				.refine(
-					value => /^[a-zA-ZÀ-ÖØ-öø-ÿĀ-žĄ-Žą-ž]+[-'s]?[a-zA-ZÀ-ÖØ-öø-ÿĀ-žĄ-Žą-ž ]+$/.test(value),
-					e('alphabets', {property: t('Form.full_name')})
-				)
-				.refine(
-					value =>
-						/^[A-ZÀ-ÖØ-ÝĀ-ŽĄ-Ž][a-zà-öø-ÿĀ-žĄ-Žą-ž]+\s+[A-ZÀ-ÖØ-ÝĀ-ŽĄ-Ž][a-zà-öø-ÿĀ-žĄ-Žą-ž]+$/.test(
-							value
-						),
-					e('full_name')
+	const t = useTranslations()
+
+	return object(
+		{
+			full_name: string([
+				minLength(3, t('Errors.min_length', {property: t('Auth.Form.full_name'), count: 3})),
+				maxLength(48, t('Errors.max_length', {property: t('Auth.Form.full_name'), count: 48})),
+				regex(
+					/^[a-zA-ZÀ-ÖØ-öø-ÿĀ-žĄ-Žą-ž]+[-'s]?[a-zA-ZÀ-ÖØ-öø-ÿĀ-žĄ-Žą-ž ]+$/,
+					t('Errors.alphabets', {property: t('Auth.Form.full_name')})
 				),
-			username: z
-				.string()
-				.min(2, {
-					message: e('min_length', {property: t('Form.username'), count: 2})
-				})
-				.max(32, {
-					message: e('max_length', {property: t('Form.username'), count: 32})
-				})
-				.refine(value => /^[a-zA-Z0-9_.-]+$/.test(value), e('strict')),
-			password: z
-				.string()
-				.min(6, {
-					message: e('min_length', {property: t('Form.password'), count: 6})
-				})
-				.max(64, {
-					message: e('max_length', {property: t('Form.password'), count: 64})
-				}),
-			repeat_password: z.string()
-		})
-		.refine(data => data.password === data.repeat_password, {
-			message: e('not_matching', {property: t('Form.passwords')}),
-			path: ['repeat_password']
-		})
+				regex(
+					/^[A-ZÀ-ÖØ-ÝĀ-ŽĄ-Ž][a-zà-öø-ÿĀ-žĄ-Žą-ž]+\s+[A-ZÀ-ÖØ-ÝĀ-ŽĄ-Ž][a-zà-öø-ÿĀ-žĄ-Žą-ž]+$/,
+					t('Errors.full_name')
+				)
+			]),
+			username: string([
+				minLength(2, t('Errors.min_length', {property: t('Auth.Form.username'), count: 2})),
+				maxLength(32, t('Errors.max_length', {property: t('Auth.Form.username'), count: 32})),
+				regex(/^[a-zA-Z0-9_.-]+$/, t('Errors.strict'))
+			]),
+			password: string([
+				minLength(6, t('Errors.min_length', {property: t('Auth.Form.password'), count: 6})),
+				maxLength(64, t('Errors.max_length', {property: t('Auth.Form.password'), count: 64}))
+			]),
+			repeat_password: string()
+		},
+		[
+			forward(
+				custom(
+					({password, repeat_password}) => password === repeat_password,
+					t('Errors.not_matching', {property: t('Auth.Form.passwords')})
+				),
+				['repeat_password']
+			)
+		]
+	)
 }
+
+export type TFormSchema = ReturnType<typeof useFormSchema>
+export type TOutputFormSchema = Output<TFormSchema>

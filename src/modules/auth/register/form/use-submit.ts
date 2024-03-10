@@ -2,25 +2,24 @@ import {useTranslations} from 'next-intl'
 import {useReCaptcha} from 'next-recaptcha-v3'
 import {useRouter} from 'next/navigation'
 import {useCallback} from 'react'
-import {z} from 'zod'
 import {toast} from '@/components/ui/use-toast'
 import {PAGES} from '@/constants/pages'
 import {useRegisterMutation} from '@/store/api/auth.api'
-import {useFormSchema} from './use-form-schema'
+import {TFormSchema, TOutputFormSchema} from '@/modules/auth/register/form/use-form-schema'
 
-export const useSubmit = (formSchema: ReturnType<typeof useFormSchema>) => {
-	const [t, e] = [useTranslations('Auth'), useTranslations('Errors')]
+export const useSubmit = (formSchema: TFormSchema) => {
+	const t = useTranslations()
 	const [registerUser] = useRegisterMutation()
 	const {executeRecaptcha} = useReCaptcha()
 	const {push} = useRouter()
 
 	return useCallback(
-		async ({full_name, username, password}: z.infer<typeof formSchema>) => {
+		async ({full_name, username, password}: TOutputFormSchema) => {
 			const token = await executeRecaptcha('form_submit')
 			if (!token) {
 				return toast({
 					title: 'Google ReCaptcha',
-					description: e('recaptcha'),
+					description: t('Errors.recaptcha'),
 					variant: 'destructive'
 				})
 			}
@@ -28,7 +27,7 @@ export const useSubmit = (formSchema: ReturnType<typeof useFormSchema>) => {
 			registerUser({full_name, username, password, token})
 				.unwrap()
 				.then(() => {
-					toast({description: t('Register.success')})
+					toast({description: t('Auth.Register.success')})
 					push(PAGES.ROUTINES)
 				})
 		},
