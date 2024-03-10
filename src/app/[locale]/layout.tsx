@@ -1,7 +1,7 @@
 import {NextIntlClientProvider, useMessages} from 'next-intl'
 import {unstable_setRequestLocale} from 'next-intl/server'
 import {Inter} from 'next/font/google'
-import {Container} from '@/components/navigation'
+import {NavigationContainer} from '@/components/navigation/container'
 import {ThemeProvider} from '@/components/providers'
 import {Toaster} from '@/components/ui/toaster'
 import {LOCALES} from '@/constants'
@@ -35,7 +35,7 @@ const Layout = ({children, params: {locale}}: IParamsLocaleChildren) => {
 						disableTransitionOnChange>
 						<Toaster />
 						<StoreProvider>
-							<Container>{children}</Container>
+							<NavigationContainer>{children}</NavigationContainer>
 						</StoreProvider>
 					</ThemeProvider>
 				</NextIntlClientProvider>
