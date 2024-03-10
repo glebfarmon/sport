@@ -2,8 +2,8 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import {HTMLInputTypeAttribute} from 'react'
 import {useForm as useReactForm} from 'react-hook-form'
 import {z} from 'zod'
-import {useFormSchema} from './useFormSchema'
-import {useSubmit} from './useSubmit'
+import {useFormSchema} from './use-form-schema'
+import {useSubmit} from './use-submit'
 
 interface IFormData<T> {
 	property: T

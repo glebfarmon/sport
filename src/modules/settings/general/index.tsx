@@ -1,3 +1,3 @@
-export const SettingsPassword = () => {
-	return <p>1234</p>
+export const SettingsGeneral = () => {
+	return <p>12345</p>
 }

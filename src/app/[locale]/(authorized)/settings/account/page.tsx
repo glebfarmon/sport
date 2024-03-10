@@ -1,6 +1,6 @@
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server'
 import {IParamsLocale} from '@/models'
-import {Settings} from '@/modules/settings'
+import {SettingsAccount} from '@/modules/settings/account'
 
 export const generateMetadata = async ({params: {locale}}: IParamsLocale) => {
 	const t = await getTranslations({locale, namespace: 'Settings'})
@@ -9,9 +9,9 @@ export const generateMetadata = async ({params: {locale}}: IParamsLocale) => {
 	}
 }
 
-const SettingsPage = ({params: {locale}}: IParamsLocale) => {
+const SettingsAccountPage = ({params: {locale}}: IParamsLocale) => {
 	unstable_setRequestLocale(locale)
-	return <Settings />
+	return <SettingsAccount />
 }
 
-export default SettingsPage
+export default SettingsAccountPage

@@ -33,7 +33,7 @@ export const authApi = mainApi.injectEndpoints({
 				credentials: 'include',
 				method: 'GET'
 			}),
-			transformResponse: (response: {message: string}) => response?.message === 'ok'
+			transformResponse: (response: IIsAuthorized) => response?.message === 'ok'
 		})
 	})
 })

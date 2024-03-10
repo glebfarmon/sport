@@ -6,7 +6,7 @@ import {Button} from '@/components/ui/button'
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 import {Input} from '@/components/ui/input'
 import {PAGES} from '@/constants/pages'
-import {useForm} from '@/modules/auth/register/form/useForm'
+import {useForm} from '@/modules/auth/register/form/use-form'
 
 export const Register = () => {
 	const t = useTranslations('Auth')

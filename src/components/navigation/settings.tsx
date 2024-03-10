@@ -7,12 +7,11 @@ import {PAGES} from '@/constants'
 export const Settings = forwardRef<HTMLButtonElement, ButtonProps>(({...props}, ref) => {
 	return (
 		<Button
-			{...props}
 			variant={'outline'}
 			size={'icon'}
 			ref={ref}
-			asChild>
-			<Link href={PAGES.PANEL}>
+			{...props}>
+			<Link href={PAGES.SETTINGS_ACCOUNT}>
 				<SettingsIcon strokeWidth={1} />
 			</Link>
 		</Button>

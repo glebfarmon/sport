@@ -1,10 +1,13 @@
-import {unstable_setRequestLocale} from 'next-intl/server'
-import {AuthProvider} from '@/components'
-import {IParamsLocaleChildren} from '@/models'
+import {Metadata} from 'next'
+import {ReactNode} from 'react'
+import {AuthProvider} from '@/components/providers'
+import {NO_INDEX_PAGE} from '@/constants'
 
-const Layout = ({children, params: {locale}}: IParamsLocaleChildren) => {
-	unstable_setRequestLocale(locale)
+export const metadata: Metadata = {
+	...NO_INDEX_PAGE
+}
 
+const Layout = ({children}: {children: ReactNode}) => {
 	return <AuthProvider>{children}</AuthProvider>
 }
 

@@ -21,7 +21,7 @@ export const AuthProvider = ({
 				const ok = data.ok
 
 				if (authPage) {
-					if (ok) redirect(PAGES.HOME)
+					if (ok) redirect(PAGES.ROUTINES)
 				} else {
 					if (!ok) redirect(PAGES.LOGIN)
 				}

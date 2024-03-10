@@ -1,17 +1,24 @@
-import {Exercises, History, Progress, Routines, Settings} from '@/components'
+'use client'
+
+import {useTooltips} from '@/components/navigation/use-tooltips'
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip'
 
 export const Sidebar = () => {
+	const tooltips = useTooltips()
+
 	return (
-		<aside
-			className={
-				'fixed bottom-0 w-dvw border-t p-2 lg:right-0 lg:top-0 lg:w-auto lg:border-0 lg:border-l'
-			}>
-			<div className={'flex shrink-0 flex-row justify-evenly gap-y-2 lg:flex-col'}>
-				<Routines />
-				<History />
-				<Progress />
-				<Exercises />
-				<Settings />
+		<aside className={'border-t bg-background p-2 lg:border-0 lg:border-l'}>
+			<div className={'flex shrink-0 flex-row justify-evenly lg:flex-col lg:gap-y-2'}>
+				<TooltipProvider>
+					{tooltips.map((tooltip, i) => (
+						<Tooltip key={i}>
+							<TooltipTrigger asChild>{tooltip.node}</TooltipTrigger>
+							<TooltipContent>
+								<p>{tooltip.title}</p>
+							</TooltipContent>
+						</Tooltip>
+					))}
+				</TooltipProvider>
 			</div>
 		</aside>
 	)

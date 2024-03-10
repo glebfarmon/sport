@@ -1,47 +1,60 @@
 {
-  "Theme": {
-    "light": "Light",
-    "dark": "Dark",
-    "system": "System"
-  },
-  "Home": {
-    "title": "Main page"
-  },
-  "Errors": {
-    "min_length": "{property} must be at least {count, plural, one {# character} other {# characters}} long",
-    "max_length": "{property} must be a maximum of {count, plural, one {# character} other {# characters}}",
-    "not_matching": "{property} don't match",
-    "alphabets": "{property} should contain only alphabets",
-    "full_name": "Please enter both firstname and lastname",
-    "strict": "Use Latin, numbers and some special characters",
-    "recaptcha": "Verification failed, please try again"
-  },
-  "Auth": {
-    "Login": {
-      "title": "Login page",
-      "greeting": "Login to account",
-      "subgreeting": "Enter your credentials below to log in to your account",
-      "success": "Successfully logged in",
-      "goto": "Login to account"
-    },
-    "Register": {
-      "title": "Register page",
-      "greeting": "Create an account",
-      "subgreeting": "Enter your credentials below to create your account",
-      "success": "Successfully registered and logged in"
-    },
-    "Form": {
-      "full_name": "Full name",
-      "username": "Username",
-      "password": "Password",
-      "passwords": "Passwords",
-      "repeat_password": "Repeat password",
-      "login": "Login",
-      "register": "Register"
-    }
-  },
-  "Panel": {
-    "title": "Panel",
-    "goto": "Go to panel"
-  }
+	"Theme": {
+		"light": "Light",
+		"dark": "Dark",
+		"system": "System"
+	},
+	"Errors": {
+		"min_length": "{property} must be at least {count, plural, one {# character} other {# characters}} long",
+		"max_length": "{property} must be a maximum of {count, plural, one {# character} other {# characters}}",
+		"not_matching": "{property} don't match",
+		"alphabets": "{property} should contain only alphabets",
+		"full_name": "Please enter both firstname and lastname",
+		"strict": "Use Latin, numbers and some special characters",
+		"recaptcha": "Verification failed, please try again"
+	},
+	"Auth": {
+		"Login": {
+			"title": "Login page",
+			"greeting": "Login to account",
+			"subgreeting": "Enter your credentials below to log in to your account",
+			"success": "Successfully logged in",
+			"goto": "Login to account"
+		},
+		"Register": {
+			"title": "Register page",
+			"greeting": "Create an account",
+			"subgreeting": "Enter your credentials below to create your account",
+			"success": "Successfully registered and logged in"
+		},
+		"Form": {
+			"full_name": "Full name",
+			"username": "Username",
+			"password": "Password",
+			"passwords": "Passwords",
+			"repeat_password": "Repeat password",
+			"login": "Login",
+			"register": "Register"
+		}
+	},
+	"Routines": {
+		"title": "Routines"
+	},
+	"History": {
+		"title": "History"
+	},
+	"Progress": {
+		"title": "Progress"
+	},
+	"Exercises": {
+		"title": "Exercises"
+	},
+	"Settings": {
+		"title": "Settings",
+		"Tabs": {
+			"account": "Account",
+			"password": "Password",
+			"general": "General"
+		}
+	}
 }
