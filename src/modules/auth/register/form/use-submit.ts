@@ -29,7 +29,7 @@ export const useSubmit = (formSchema: ReturnType<typeof useFormSchema>) => {
 				.unwrap()
 				.then(() => {
 					toast({description: t('Register.success')})
-					push(PAGES.HOME)
+					push(PAGES.ROUTINES)
 				})
 		},
 		[formSchema]

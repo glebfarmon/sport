@@ -1,6 +1,5 @@
 import {ReactNode} from 'react'
-import {AuthProvider} from '@/components'
-import GoBack from '@/components/go-back'
+import {AuthProvider, GoBack} from '@/components'
 
 const Layout = ({children}: {children: ReactNode}) => {
 	return (
