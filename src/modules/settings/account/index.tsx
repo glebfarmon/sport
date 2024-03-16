@@ -1,15 +1,20 @@
 'use client'
 
 import {useTranslations} from 'next-intl'
+import {useRouter} from 'next/navigation'
 import {Button} from '@/components/ui/button'
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 import {Input} from '@/components/ui/input'
+import {PAGES} from '@/constants/pages'
+import {useLazyLogoutQuery} from '@/store/api/auth.api'
 import {useForm} from '@/modules/settings/account/form/use-form'
 import {useInitialData} from '@/modules/settings/account/form/use-initial-data'
 
 export const SettingsAccount = () => {
 	const t = useTranslations('Settings.Tabs.Account')
 	const {formData, form, onSubmit} = useForm()
+	const {push} = useRouter()
+	const [logout] = useLazyLogoutQuery()
 
 	useInitialData(form.reset)
 
@@ -42,7 +47,17 @@ export const SettingsAccount = () => {
 						)}
 					/>
 				))}
-				<Button type={'submit'}>{t('save')}</Button>
+				<div className={'flex flex-col gap-y-2 sm:flex-row sm:justify-between'}>
+					<Button type={'submit'}>{t('save')}</Button>
+					<Button
+						variant={'outline'}
+						type={'button'}
+						onClick={() => {
+							logout().then(() => push(PAGES.LOGIN))
+						}}>
+						{t('logout')}
+					</Button>
+				</div>
 			</form>
 		</Form>
 	)

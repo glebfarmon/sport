@@ -71,7 +71,8 @@
 				"password": "Stare hasło",
 				"new_password": "Nowe hasło",
 				"save": "Zapisz zmiany",
-				"success_save": "Pomyślnie zapisano zmiany"
+				"success_save": "Pomyślnie zapisano zmiany",
+				"logout": "Wyloguj się"
 			},
 			"Password": {
 				"title": "Hasło",

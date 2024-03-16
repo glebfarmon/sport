@@ -22,7 +22,6 @@ const formData: IFormData[] = [
 
 export const useForm = () => {
 	const formSchema = useFormSchema()
-	const onSubmit = useSubmit(formSchema)
 
 	const form = useReactForm<TOutputFormSchema>({
 		resolver: valibotResolver(formSchema),
@@ -32,6 +31,7 @@ export const useForm = () => {
 			password: ''
 		}
 	})
+	const onSubmit = useSubmit(formSchema, form.resetField)
 
 	return {formData, form, onSubmit}
 }

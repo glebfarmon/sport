@@ -71,7 +71,8 @@
 				"password": "Old password",
 				"new_password": "New password",
 				"save": "Save changes",
-				"success_save": "Successfully saved changes"
+				"success_save": "Successfully saved changes",
+				"logout": "Logout"
 			},
 			"Password": {
 				"title": "Password",

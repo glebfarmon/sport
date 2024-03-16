@@ -43,7 +43,7 @@ export const Register = () => {
 								)}
 							/>
 						))}
-						<div className={'flex justify-between'}>
+						<div className={'flex flex-col gap-y-2 sm:flex-row sm:justify-between'}>
 							<Button type={'submit'}>{t('Form.register')}</Button>
 							<Button
 								variant={'outline'}

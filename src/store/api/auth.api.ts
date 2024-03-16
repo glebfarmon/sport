@@ -38,4 +38,5 @@ export const authApi = mainApi.injectEndpoints({
 	})
 })
 
-export const {useRegisterMutation, useLoginMutation, useLogoutQuery, useIsAuthorizedQuery} = authApi
+export const {useRegisterMutation, useLoginMutation, useLazyLogoutQuery, useIsAuthorizedQuery} =
+	authApi

@@ -30,7 +30,7 @@ export const SettingsGeneral = () => {
 									}}
 									key={i}>
 									<FormControl>
-										<SelectTrigger className={'w-[180px]'}>
+										<SelectTrigger>
 											<SelectValue placeholder={t(`${property}.label`)} />
 										</SelectTrigger>
 									</FormControl>
