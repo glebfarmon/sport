@@ -1,4 +1,4 @@
-import {IAuthLogin, IAuthRegister, IIsAuthorized} from '@/models/api'
+import type {IAuthLogin, IAuthRegister, IIsAuthorized} from '@/models/api'
 import {mainApi} from './main.api'
 
 export const authApi = mainApi.injectEndpoints({

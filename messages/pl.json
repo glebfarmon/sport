@@ -6,7 +6,8 @@
 		"alphabets": "{property} ma zawierać tylko litery",
 		"full_name": "Wprowadź imię i nazwisko",
 		"strict": "Używaj alfabetu łacińskiego, cyfr i niektórych znaków specjalnych",
-		"recaptcha": "Weryfikacja nie powiodła się, spróbuj ponownie"
+		"recaptcha": "Weryfikacja nie powiodła się, spróbuj ponownie",
+		"required": "{property} jest wymagane"
 	},
 	"Auth": {
 		"Login": {
@@ -49,7 +50,7 @@
 		"Tabs": {
 			"General": {
 				"title": "Ogólne",
-				"subtitle": "Zmień ustawienia ogólne tutaj. Zmiany zostaną zapisane automatycznie.",
+				"subtitle": "Zmień ustawienia ogólne tutaj. Zmiany zostaną zapisane automatycznie",
 				"theme": {
 					"label": "Zmień motyw",
 					"light": "Jasny",
@@ -64,7 +65,13 @@
 			},
 			"Account": {
 				"title": "Konto",
-				"subtitle": ""
+				"subtitle": "Zmień ustawienia konta tutaj. Kliknij zapisz, gdy skończysz.",
+				"full_name": "Imię i nazwisko",
+				"username": "Nazwa użytkownika",
+				"password": "Stare hasło",
+				"new_password": "Nowe hasło",
+				"save": "Zapisz zmiany",
+				"success_save": "Pomyślnie zapisano zmiany"
 			},
 			"Password": {
 				"title": "Hasło",

@@ -6,7 +6,8 @@
 		"alphabets": "{property} should contain only alphabets",
 		"full_name": "Please enter both firstname and lastname",
 		"strict": "Use Latin, numbers and some special characters",
-		"recaptcha": "Verification failed, please try again"
+		"recaptcha": "Verification failed, please try again",
+		"required": "{property} is required"
 	},
 	"Auth": {
 		"Login": {
@@ -49,7 +50,7 @@
 		"Tabs": {
 			"General": {
 				"title": "General",
-				"subtitle": "Make changes to your general settings here. Changes will be saved automatically.",
+				"subtitle": "Make changes to your general settings here. Changes will be saved automatically",
 				"theme": {
 					"label": "Switch theme",
 					"light": "Light",
@@ -64,7 +65,13 @@
 			},
 			"Account": {
 				"title": "Account",
-				"subtitle": ""
+				"subtitle": "Make changes to your account settings here. Click save when you're done",
+				"full_name": "Full name",
+				"username": "Username",
+				"password": "Old password",
+				"new_password": "New password",
+				"save": "Save changes",
+				"success_save": "Successfully saved changes"
 			},
 			"Password": {
 				"title": "Password",

@@ -5,7 +5,7 @@ import {useCallback} from 'react'
 import {toast} from '@/components/ui/use-toast'
 import {PAGES} from '@/constants/pages'
 import {useRegisterMutation} from '@/store/api/auth.api'
-import {TFormSchema, TOutputFormSchema} from '@/modules/auth/register/form/use-form-schema'
+import type {TFormSchema, TOutputFormSchema} from '@/modules/auth/register/form/use-form-schema'
 
 export const useSubmit = (formSchema: TFormSchema) => {
 	const t = useTranslations()
