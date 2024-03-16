@@ -11,7 +11,7 @@ export const SettingsGeneral = () => {
 
 	return (
 		<Form {...form}>
-			<form className={'mt-2 space-y-4 rounded-md border border-input p-6'}>
+			<form className={'space-y-4 rounded-md border border-input p-6'}>
 				<h3 className={'font-semibold leading-none tracking-tight'}>{t('title')}</h3>
 				<p className={'text-sm text-muted-foreground'}>{t('subtitle')}</p>
 				{formData.map(({property, func, content}, i) => (

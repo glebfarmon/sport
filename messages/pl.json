@@ -65,18 +65,20 @@
 			},
 			"Account": {
 				"title": "Konto",
-				"subtitle": "Zmień ustawienia konta tutaj. Kliknij zapisz, gdy skończysz.",
+				"subtitle": "Zmień ustawienia konta tutaj. Kliknij zapisz, gdy skończysz",
 				"full_name": "Imię i nazwisko",
 				"username": "Nazwa użytkownika",
 				"password": "Stare hasło",
-				"new_password": "Nowe hasło",
 				"save": "Zapisz zmiany",
 				"success_save": "Pomyślnie zapisano zmiany",
 				"logout": "Wyloguj się"
 			},
 			"Password": {
 				"title": "Hasło",
-				"subtitle": ""
+				"subtitle": "Zmień hasło tutaj. Kliknij zapisz, gdy skończysz",
+				"save": "Zapisz zmiany",
+				"password": "Stare hasło",
+				"password_new": "Nowe hasło"
 			}
 		}
 	}

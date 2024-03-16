@@ -69,14 +69,16 @@
 				"full_name": "Full name",
 				"username": "Username",
 				"password": "Old password",
-				"new_password": "New password",
 				"save": "Save changes",
 				"success_save": "Successfully saved changes",
 				"logout": "Logout"
 			},
 			"Password": {
 				"title": "Password",
-				"subtitle": ""
+				"subtitle": "Make changes to your password here. Click save when you're done",
+				"save": "Save changes",
+				"password": "Old password",
+				"password_new": "New password"
 			}
 		}
 	}
