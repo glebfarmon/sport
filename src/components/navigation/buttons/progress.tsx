@@ -6,14 +6,14 @@ import {PAGES} from '@/constants'
 
 export const Progress = forwardRef<HTMLButtonElement, ButtonProps>(({...props}, ref) => {
 	return (
-		<Button
-			variant={'outline'}
-			size={'icon'}
-			ref={ref}
-			{...props}>
-			<Link href={PAGES.PROGRESS}>
+		<Link href={PAGES.PROGRESS}>
+			<Button
+				variant={'outline'}
+				size={'icon'}
+				ref={ref}
+				{...props}>
 				<BarChartBig strokeWidth={1} />
-			</Link>
-		</Button>
+			</Button>
+		</Link>
 	)
 })

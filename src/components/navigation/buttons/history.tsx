@@ -6,14 +6,14 @@ import {PAGES} from '@/constants'
 
 export const History = forwardRef<HTMLButtonElement, ButtonProps>(({...props}, ref) => {
 	return (
-		<Button
-			variant={'outline'}
-			size={'icon'}
-			ref={ref}
-			{...props}>
-			<Link href={PAGES.HISTORY}>
+		<Link href={PAGES.HISTORY}>
+			<Button
+				variant={'outline'}
+				size={'icon'}
+				ref={ref}
+				{...props}>
 				<Clock9 strokeWidth={1} />
-			</Link>
-		</Button>
+			</Button>
+		</Link>
 	)
 })
