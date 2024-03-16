@@ -1,9 +1,4 @@
 {
-	"Theme": {
-		"light": "Light",
-		"dark": "Dark",
-		"system": "System"
-	},
 	"Errors": {
 		"min_length": "{property} must be at least {count, plural, one {# character} other {# characters}} long",
 		"max_length": "{property} must be a maximum of {count, plural, one {# character} other {# characters}}",
@@ -52,9 +47,29 @@
 	"Settings": {
 		"title": "Settings",
 		"Tabs": {
-			"account": "Account",
-			"password": "Password",
-			"general": "General"
+			"General": {
+				"title": "General",
+				"subtitle": "Make changes to your general settings here. Changes will be saved automatically.",
+				"theme": {
+					"label": "Switch theme",
+					"light": "Light",
+					"dark": "Dark",
+					"system": "System"
+				},
+				"language": {
+					"label": "Switch language",
+					"en": "English",
+					"pl": "Polish"
+				}
+			},
+			"Account": {
+				"title": "Account",
+				"subtitle": ""
+			},
+			"Password": {
+				"title": "Password",
+				"subtitle": ""
+			}
 		}
 	}
 }

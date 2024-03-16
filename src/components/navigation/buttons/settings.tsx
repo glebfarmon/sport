@@ -11,7 +11,7 @@ export const Settings = forwardRef<HTMLButtonElement, ButtonProps>(({...props}, 
 			size={'icon'}
 			ref={ref}
 			{...props}>
-			<Link href={PAGES.SETTINGS_ACCOUNT}>
+			<Link href={PAGES.SETTINGS}>
 				<SettingsIcon strokeWidth={1} />
 			</Link>
 		</Button>

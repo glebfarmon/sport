@@ -11,21 +11,21 @@ interface IFormData {
 	autocomplete: HTMLInputElement['autocomplete']
 }
 
+const formData: IFormData[] = [
+	{property: 'full_name', placeholder: 'Troy Walker', type: 'text', autocomplete: 'name'},
+	{property: 'username', placeholder: 'fernstalk', type: 'text', autocomplete: 'username'},
+	{property: 'password', placeholder: '123456', type: 'password', autocomplete: 'new-password'},
+	{
+		property: 'repeat_password',
+		placeholder: '123456',
+		type: 'password',
+		autocomplete: 'new-password'
+	}
+]
+
 export const useForm = () => {
 	const formSchema = useFormSchema()
 	const onSubmit = useSubmit(formSchema)
-
-	const formData: IFormData[] = [
-		{property: 'full_name', placeholder: 'Troy Walker', type: 'text', autocomplete: 'name'},
-		{property: 'username', placeholder: 'fernstalk', type: 'text', autocomplete: 'username'},
-		{property: 'password', placeholder: '123456', type: 'password', autocomplete: 'new-password'},
-		{
-			property: 'repeat_password',
-			placeholder: '123456',
-			type: 'password',
-			autocomplete: 'new-password'
-		}
-	]
 
 	const form = useReactForm<TOutputFormSchema>({
 		resolver: valibotResolver(formSchema),

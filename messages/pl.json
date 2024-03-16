@@ -1,9 +1,4 @@
 {
-	"Theme": {
-		"light": "Jasny",
-		"dark": "Ciemny",
-		"system": "Systemowy"
-	},
 	"Errors": {
 		"min_length": "{property} ma zawierać co najmniej {count, plural, one {# znak} few {# znaki} other {# znaków}}",
 		"max_length": "{property} ma zawierać maksymalnie {count, plural, one {# znak} few {# znaki} other {# znaków}}",
@@ -52,9 +47,29 @@
 	"Settings": {
 		"title": "Ustawienia",
 		"Tabs": {
-			"account": "Konto",
-			"password": "Hasło",
-			"general": "Ogólne"
+			"General": {
+				"title": "Ogólne",
+				"subtitle": "Zmień ustawienia ogólne tutaj. Zmiany zostaną zapisane automatycznie.",
+				"theme": {
+					"label": "Zmień motyw",
+					"light": "Jasny",
+					"dark": "Ciemny",
+					"system": "Systemowy"
+				},
+				"language": {
+					"label": "Zmień język",
+					"en": "Angielski",
+					"pl": "Polski"
+				}
+			},
+			"Account": {
+				"title": "Konto",
+				"subtitle": ""
+			},
+			"Password": {
+				"title": "Hasło",
+				"subtitle": ""
+			}
 		}
 	}
 }

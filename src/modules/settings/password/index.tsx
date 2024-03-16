@@ -1,3 +1,3 @@
 export const SettingsPassword = () => {
-	return <p>123</p>
+	return <p>Password</p>
 }
