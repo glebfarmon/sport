@@ -14,7 +14,7 @@ const tabComponents: Record<TSettingsTabs, ReactNode> = {
 export const Settings = ({tab}: ISettingsProps) => {
 	const tabComponent = tabComponents[tab]
 	return (
-		<div className={'grid h-screen place-items-center'}>
+		<div className={'grid h-full place-items-center'}>
 			<div className={'flex w-min flex-col'}>
 				<ul
 					className={

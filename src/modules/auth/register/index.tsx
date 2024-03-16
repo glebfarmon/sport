@@ -13,7 +13,7 @@ export const Register = () => {
 	const {formData, form, onSubmit} = useForm()
 
 	return (
-		<div className={'grid h-screen place-items-center'}>
+		<div className={'grid h-full place-items-center'}>
 			<div className={'flex flex-col'}>
 				<p className={'mb-2 text-center text-2xl font-semibold'}>{t('Register.greeting')}</p>
 				<p className={'text-center text-sm text-muted-foreground'}>{t('Register.subgreeting')}</p>
