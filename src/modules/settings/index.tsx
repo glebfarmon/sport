@@ -1,33 +1,8 @@
 'use client'
 
-import dynamic from 'next/dynamic'
-import type {ReactNode} from 'react'
-import {ISettingsProps, TSettingsTabs} from '@/models'
-import {SkeletonAccount} from '@/modules/settings/account/skeleton'
-import {SkeletonGeneral} from '@/modules/settings/general/skeleton'
-import {SkeletonPassword} from '@/modules/settings/password/skeleton'
+import {ISettingsProps} from '@/models'
 import {Tabs} from '@/modules/settings/tabs'
-
-const SettingsGeneral = dynamic(
-	() => import('@/modules/settings/general').then(mod => mod.SettingsGeneral),
-	{loading: () => <SkeletonGeneral />, ssr: false}
-)
-
-const SettingsAccount = dynamic(
-	() => import('@/modules/settings/account').then(mod => mod.SettingsAccount),
-	{loading: () => <SkeletonAccount />, ssr: false}
-)
-
-const SettingsPassword = dynamic(
-	() => import('@/modules/settings/password').then(mod => mod.SettingsPassword),
-	{loading: () => <SkeletonPassword />, ssr: false}
-)
-
-const tabComponents: Record<TSettingsTabs, ReactNode> = {
-	general: <SettingsGeneral />,
-	account: <SettingsAccount />,
-	password: <SettingsPassword />
-}
+import {tabComponents} from '@/modules/settings/tabs/components'
 
 export const Settings = ({tab}: ISettingsProps) => {
 	const tabComponent = tabComponents[tab]
