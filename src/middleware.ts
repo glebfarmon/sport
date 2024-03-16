@@ -1,11 +1,8 @@
-import createMiddleware from 'next-intl/middleware'
-import {DEFAULT_LOCALE, LOCALE_PREFIX, LOCALES} from '@/constants'
+import {withAuthMiddleware} from '@/middlewares/auth'
+import {chain} from '@/middlewares/chain'
+import {withI18nMiddleware} from '@/middlewares/i18n'
 
-export default createMiddleware({
-	defaultLocale: DEFAULT_LOCALE,
-	locales: LOCALES,
-	localePrefix: LOCALE_PREFIX
-})
+export default chain([withAuthMiddleware, withI18nMiddleware])
 
 export const config = {
 	// matcher: ['/', `/(en|pl)/:path*`]
