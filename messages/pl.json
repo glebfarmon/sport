@@ -52,13 +52,13 @@
 				"title": "Ogólne",
 				"subtitle": "Zmień ustawienia ogólne tutaj. Zmiany zostaną zapisane automatycznie",
 				"theme": {
-					"label": "Zmień motyw",
+					"label": "Wybierz motyw",
 					"light": "Jasny",
 					"dark": "Ciemny",
 					"system": "Systemowy"
 				},
 				"language": {
-					"label": "Zmień język",
+					"label": "Wybierz język",
 					"en": "Angielski",
 					"pl": "Polski"
 				}
