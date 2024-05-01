@@ -6,15 +6,18 @@ import {Button} from '@/components/ui/button'
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 import {Input} from '@/components/ui/input'
 import {PAGES} from '@/constants/pages'
-import {useLazyLogoutQuery} from '@/store/api/auth.api'
+import {useLogoutMutation} from '@/store/api/auth.api'
+import {mainApi} from '@/store/api/main.api'
+import {useAppDispatch} from '@/hooks'
 import {useForm} from '@/modules/settings/account/form/use-form'
 import {useInitialData} from '@/modules/settings/account/form/use-initial-data'
 
-export const SettingsAccount = () => {
+const SettingsAccount = () => {
 	const t = useTranslations('Settings.Tabs.Account')
 	const {formData, form, onSubmit} = useForm()
 	const {push} = useRouter()
-	const [logout] = useLazyLogoutQuery()
+	const [logout] = useLogoutMutation()
+	const dispatch = useAppDispatch()
 
 	useInitialData(form.reset)
 
@@ -53,7 +56,10 @@ export const SettingsAccount = () => {
 						variant={'outline'}
 						type={'button'}
 						onClick={() => {
-							logout().then(() => push(PAGES.LOGIN))
+							logout().then(() => {
+								push(PAGES.LOGIN)
+								dispatch(mainApi.util.resetApiState())
+							})
 						}}>
 						{t('logout')}
 					</Button>
@@ -62,3 +68,5 @@ export const SettingsAccount = () => {
 		</Form>
 	)
 }
+
+export default SettingsAccount

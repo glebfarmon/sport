@@ -1,13 +1,11 @@
 'use client'
 
-import {useTranslations} from 'next-intl'
 import {usePathname} from 'next/navigation'
 import {Exercises, History, Progress, Routines, Settings} from '@/components/navigation/buttons'
 import {ButtonProps} from '@/components/ui/button'
 import {PAGES} from '@/constants'
 
 export const Sidebar = () => {
-	const t = useTranslations()
 	const pathname = usePathname()
 
 	const getVariant = (pagePath: keyof typeof PAGES): ButtonProps['variant'] =>

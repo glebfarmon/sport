@@ -1,6 +1,6 @@
 import {useTranslations} from 'next-intl'
-import Link from 'next/link'
 import {ISettingsProps, TSettingsTabs} from '@/models'
+import {Link} from '@/hooks'
 import {cn} from '@/utils'
 
 export const Tabs = ({tab}: ISettingsProps) => {

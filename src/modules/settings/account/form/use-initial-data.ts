@@ -4,14 +4,14 @@ import {useGetUserQuery} from '@/store/api/user.api'
 import type {TOutputFormSchema} from '@/modules/settings/account/form/use-form-schema'
 
 export const useInitialData = (reset: UseFormReset<TOutputFormSchema>) => {
-	const {data, isSuccess} = useGetUserQuery()
+	const {data, isSuccess, isFetching} = useGetUserQuery()
 
 	useEffect(() => {
-		if (isSuccess && data) {
+		if (isSuccess && !isFetching && data) {
 			reset({
 				username: data.username,
 				full_name: data.full_name
 			})
 		}
-	}, [isSuccess])
+	}, [isSuccess, isFetching])
 }

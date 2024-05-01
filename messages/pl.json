@@ -43,7 +43,8 @@
 		"title": "Postęp"
 	},
 	"Exercises": {
-		"title": "Ćwiczenia"
+		"title": "Ćwiczenia",
+		"create": "Utwórz nowe..."
 	},
 	"Settings": {
 		"title": "Ustawienia",

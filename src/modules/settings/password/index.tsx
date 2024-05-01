@@ -6,7 +6,7 @@ import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/
 import {Input} from '@/components/ui/input'
 import {useForm} from '@/modules/settings/password/form/use-form'
 
-export const SettingsPassword = () => {
+const SettingsPassword = () => {
 	const t = useTranslations('Settings.Tabs.Password')
 	const {formData, form, onSubmit} = useForm()
 
@@ -48,3 +48,5 @@ export const SettingsPassword = () => {
 		</Form>
 	)
 }
+
+export default SettingsPassword

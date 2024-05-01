@@ -33,6 +33,8 @@
 		--ring: 240 10% 3.9%;
 
 		--radius: 0.5rem;
+
+		--invert: 0%;
 	}
 
 	.dark {
@@ -63,6 +65,8 @@
 		--border: 240 3.7% 15.9%;
 		--input: 240 3.7% 15.9%;
 		--ring: 240 4.9% 83.9%;
+
+		--invert: 100%;
 	}
 }
 
@@ -95,5 +99,8 @@
 	}
 	.remove-scrollbar::-webkit-scrollbar-track {
 		background: transparent;
+	}
+	.filter-invert {
+		filter: invert(var(--invert));
 	}
 }
