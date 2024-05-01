@@ -28,11 +28,14 @@ export const withAuthMiddleware = (middleware: CustomMiddleware) => {
 }
 
 const isAuthorized = async (cookie: string) => {
-	const response = await fetch(`${config.api_url}/auth/check`, {
-		headers: {
-			Cookie: cookie
-		}
-	})
-
-	return response.json()
+	try {
+		const response = await fetch(`${config.api_url}/auth/check`, {
+			headers: {
+				Cookie: cookie
+			}
+		})
+		return response.json()
+	} catch (e) {
+		throw new Error('Authorization failed')
+	}
 }
