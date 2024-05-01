@@ -10,15 +10,15 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/components/ui/pagination'
-import type {IPaginationMeta, IPaginationSetParams} from '@/models/api'
+import {exerciseActions} from '@/store/slices/exercise.slice'
+import {useAppDispatch, useAppSelector} from '@/hooks'
 
-interface IPagination extends IPaginationSetParams {
-	meta: IPaginationMeta
-}
+const Pagination = memo(({lastPage}: {lastPage: number}) => {
+	const page = useAppSelector(state => state.exercise.page)
+	const dispatch = useAppDispatch()
 
-export const Pagination = memo(({meta, setParams}: IPagination) => {
-	const setPage = useCallback((page: number | null) => {
-		return () => setParams(prev => ({...prev, page: page ?? 1}))
+	const setPage = useCallback((page: number) => {
+		return () => dispatch(exerciseActions.setPage(page))
 	}, [])
 
 	return (
@@ -26,11 +26,11 @@ export const Pagination = memo(({meta, setParams}: IPagination) => {
 			<PaginationContent>
 				<PaginationItem>
 					<PaginationPrevious
-						disabled={!!!meta.prev}
-						onClick={setPage(meta.prev)}
+						disabled={page - 1 <= 0}
+						onClick={setPage(page - 1)}
 					/>
 				</PaginationItem>
-				{meta.currentPage - 2 > 0 ? (
+				{page - 2 > 0 ? (
 					<>
 						<PaginationItem>
 							<PaginationButton onClick={setPage(1)}>1</PaginationButton>
@@ -39,55 +39,51 @@ export const Pagination = memo(({meta, setParams}: IPagination) => {
 							<PaginationEllipsis />
 						</PaginationItem>
 						<PaginationItem>
-							<PaginationButton onClick={setPage(meta.currentPage - 1)}>
-								{meta.currentPage - 1}
-							</PaginationButton>
+							<PaginationButton onClick={setPage(page - 1)}>{page - 1}</PaginationButton>
 						</PaginationItem>
 					</>
 				) : (
-					meta.prev && (
+					page - 1 > 0 && (
 						<PaginationItem>
-							<PaginationButton onClick={setPage(meta.currentPage - 1)}>
-								{meta.currentPage - 1}
-							</PaginationButton>
+							<PaginationButton onClick={setPage(page - 1)}>{page - 1}</PaginationButton>
 						</PaginationItem>
 					)
 				)}
 				<PaginationItem>
 					<PaginationButton
-						onClick={setPage(meta.currentPage)}
+						onClick={setPage(page)}
 						isActive>
-						{meta.currentPage}
+						{page}
 					</PaginationButton>
 				</PaginationItem>
-				{meta.currentPage + 2 <= meta.lastPage ? (
+				{page + 2 <= lastPage ? (
 					<>
 						<PaginationItem>
-							<PaginationButton onClick={setPage(meta.currentPage + 1)}>
-								{meta.currentPage + 1}
-							</PaginationButton>
+							<PaginationButton onClick={setPage(page + 1)}>{page + 1}</PaginationButton>
 						</PaginationItem>
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
 						<PaginationItem>
-							<PaginationButton onClick={setPage(meta.lastPage)}>{meta.lastPage}</PaginationButton>
+							<PaginationButton onClick={setPage(lastPage)}>{lastPage}</PaginationButton>
 						</PaginationItem>
 					</>
 				) : (
-					meta.next && (
+					page + 2 < lastPage && (
 						<PaginationItem>
-							<PaginationButton onClick={setPage(meta.lastPage)}>{meta.lastPage}</PaginationButton>
+							<PaginationButton onClick={setPage(lastPage)}>{lastPage}</PaginationButton>
 						</PaginationItem>
 					)
 				)}
 				<PaginationItem>
 					<PaginationNext
-						disabled={!!!meta.next}
-						onClick={() => setParams(prev => ({...prev, page: meta.next ?? 1}))}
+						disabled={page + 1 > lastPage}
+						onClick={setPage(page + 1)}
 					/>
 				</PaginationItem>
 			</PaginationContent>
 		</PaginationContainer>
 	)
 })
+
+export default Pagination

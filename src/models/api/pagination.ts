@@ -3,23 +3,11 @@ export interface IPagination<T> {
 	meta: IPaginationMeta
 }
 
-export interface IPaginationMeta {
-	total: number
+interface IPaginationMeta {
 	lastPage: number
-	currentPage: number
-	prev: number | null
-	next: number | null
 }
 
 export interface IPaginationParams {
-	page: number
 	search: string
-}
-
-export type TPaginationSetParams = (
-	state: (prevState: IPaginationParams) => IPaginationParams
-) => void
-
-export interface IPaginationSetParams {
-	setParams: TPaginationSetParams
+	page: number
 }

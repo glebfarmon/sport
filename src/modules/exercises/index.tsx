@@ -1,43 +1,35 @@
 'use client'
 
 import {Pencil, Trash2} from 'lucide-react'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import {useState} from 'react'
-import {Pagination} from '@/components/pagination'
 import {PaginationSkeleton} from '@/components/pagination/skeleton'
 import {Button} from '@/components/ui/button'
-import type {TExerciseModal} from '@/models'
-import type {IPaginationParams} from '@/models/api'
 import {useGetExercisesQuery} from '@/store/api/exercise.api'
-import {useDelayedFetching} from '@/hooks'
-import {Modal} from '@/modules/exercises/modals'
-import {Search} from '@/modules/exercises/search'
+import {exerciseActions} from '@/store/slices/exercise.slice'
+import {useAppDispatch, useAppSelector, useDelayedFetching} from '@/hooks'
+import {SearchSkeleton} from '@/modules/exercises/search/skeleton'
 import {ExercisesSkeleton} from '@/modules/exercises/skeleton'
 
 export const Exercises = () => {
-	const [modal, setModal] = useState<TExerciseModal>({action: null})
-	const [params, setParams] = useState<IPaginationParams>({page: 1, search: ''})
-	const {data: exercises, isFetching} = useGetExercisesQuery(params)
+	const dispatch = useAppDispatch()
+	const {page, search} = useAppSelector(state => state.exercise)
+
+	const {data: exercises, isFetching} = useGetExercisesQuery({page, search})
 	const isDelayedFetching = useDelayedFetching(isFetching)
 
 	return (
 		<>
-			<Modal
-				modal={modal}
-				setModal={setModal}
-			/>
+			<Modal />
 			<div
 				className={
 					'flex flex-col flex-nowrap min-h-full justify-center m-auto max-w-[850px] gap-y-6 p-6'
 				}>
 				<div className={'flex gap-x-2'}>
-					<Search
-						search={params.search}
-						setParams={setParams}
-					/>
+					<Search />
 					<Button
 						variant={'outline'}
-						onClick={() => setModal({action: 'create'})}>
+						onClick={() => dispatch(exerciseActions.setModal({action: 'create'}))}>
 						Add
 					</Button>
 				</div>
@@ -59,11 +51,13 @@ export const Exercises = () => {
 											'invisible absolute right-4 top-4 flex gap-1 *:cursor-pointer *:text-foreground/50 *:transition-colors hover:*:text-foreground group-hover:visible'
 										}>
 										<Pencil
-											onClick={() => setModal({action: 'edit', exercise})}
+											onClick={() => dispatch(exerciseActions.setModal({action: 'edit', exercise}))}
 											size={16}
 										/>
 										<Trash2
-											onClick={() => setModal({action: 'delete', exercise})}
+											onClick={() =>
+												dispatch(exerciseActions.setModal({action: 'delete', exercise}))
+											}
 											size={16}
 										/>
 									</div>
@@ -82,18 +76,27 @@ export const Exercises = () => {
 					)}
 				</div>
 				<div className={'sm:order-3'}>
-					{isDelayedFetching ? (
-						<PaginationSkeleton />
+					{exercises?.meta ? (
+						<Pagination lastPage={exercises?.meta?.lastPage || 1} />
 					) : (
-						exercises?.meta && (
-							<Pagination
-								setParams={setParams}
-								meta={exercises.meta}
-							/>
-						)
+						<PaginationSkeleton />
 					)}
 				</div>
 			</div>
 		</>
 	)
 }
+
+const Search = dynamic(() => import('@/modules/exercises/search'), {
+	ssr: false,
+	loading: () => <SearchSkeleton />
+})
+
+const Modal = dynamic(() => import('@/modules/exercises/modals'), {
+	ssr: false
+})
+
+const Pagination = dynamic(() => import('@/components/pagination'), {
+	ssr: false,
+	loading: () => <PaginationSkeleton />
+})

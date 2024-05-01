@@ -3,13 +3,16 @@
 import {memo} from 'react'
 import {useDebouncedCallback} from 'use-debounce'
 import {Search as SearchInput} from '@/components/ui/search'
-import type {IPaginationParams, IPaginationSetParams} from '@/models/api'
+import {exerciseActions} from '@/store/slices/exercise.slice'
+import {useAppDispatch, useAppSelector} from '@/hooks'
 
-interface ISearch extends IPaginationSetParams, Pick<IPaginationParams, 'search'> {}
+const Search = memo(() => {
+	const search = useAppSelector(state => state.exercise.search)
+	const dispatch = useAppDispatch()
 
-export const Search = memo(({search, setParams}: ISearch) => {
 	const debounced = useDebouncedCallback((value: string) => {
-		setParams(prev => ({...prev, page: 1, search: value}))
+		dispatch(exerciseActions.setPage(1))
+		dispatch(exerciseActions.setSearch(value))
 	}, 500)
 
 	return (
@@ -20,3 +23,5 @@ export const Search = memo(({search, setParams}: ISearch) => {
 		/>
 	)
 })
+
+export default Search

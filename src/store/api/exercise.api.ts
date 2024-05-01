@@ -4,8 +4,8 @@ import {mainApi} from '@/store/api/main.api'
 export const exerciseApi = mainApi.injectEndpoints({
 	endpoints: builder => ({
 		getExercises: builder.query<IPagination<IExercise[]>, IPaginationParams>({
-			query: ({page, ...body}) => ({
-				url: `/exercises?${new URLSearchParams({page: String(page), ...body})}`,
+			query: ({page, search}) => ({
+				url: `/exercises?${new URLSearchParams({page: String(page), search})}`,
 				credentials: 'include',
 				method: 'GET'
 			})
