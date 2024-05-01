@@ -1,5 +1,6 @@
 'use client'
 
+import {useTranslations} from 'next-intl'
 import {memo, useCallback} from 'react'
 import {
 	PaginationButton,
@@ -14,6 +15,8 @@ import {exerciseActions} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector} from '@/hooks'
 
 const Pagination = memo(({lastPage}: {lastPage: number}) => {
+	const t = useTranslations('Pagination')
+
 	const page = useAppSelector(state => state.exercise.page)
 	const dispatch = useAppDispatch()
 
@@ -27,8 +30,9 @@ const Pagination = memo(({lastPage}: {lastPage: number}) => {
 				<PaginationItem>
 					<PaginationPrevious
 						disabled={page - 1 <= 0}
-						onClick={setPage(page - 1)}
-					/>
+						onClick={setPage(page - 1)}>
+						{t('prev')}
+					</PaginationPrevious>
 				</PaginationItem>
 				{page - 2 > 0 ? (
 					<>
@@ -78,8 +82,9 @@ const Pagination = memo(({lastPage}: {lastPage: number}) => {
 				<PaginationItem>
 					<PaginationNext
 						disabled={page + 1 > lastPage}
-						onClick={setPage(page + 1)}
-					/>
+						onClick={setPage(page + 1)}>
+						{t('next')}
+					</PaginationNext>
 				</PaginationItem>
 			</PaginationContent>
 		</PaginationContainer>

@@ -9,6 +9,10 @@
 		"recaptcha": "Weryfikacja nie powiodła się, spróbuj ponownie",
 		"required": "{property} jest wymagane"
 	},
+	"Pagination": {
+		"next": "Następna",
+		"prev": "Poprzednia"
+	},
 	"Auth": {
 		"Login": {
 			"title": "Strona logowania",
@@ -44,7 +48,9 @@
 	},
 	"Exercises": {
 		"title": "Ćwiczenia",
-		"create": "Utwórz nowe..."
+		"add": "Dodaj",
+		"not_found": "Nie znaleziono 😫",
+		"search": "Szukaj..."
 	},
 	"Settings": {
 		"title": "Ustawienia",

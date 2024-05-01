@@ -9,6 +9,10 @@
 		"recaptcha": "Verification failed, please try again",
 		"required": "{property} is required"
 	},
+	"Pagination": {
+		"next": "Next",
+		"prev": "Prev"
+	},
 	"Auth": {
 		"Login": {
 			"title": "Login page",
@@ -44,7 +48,9 @@
 	},
 	"Exercises": {
 		"title": "Exercises",
-		"create": "Create a new one..."
+		"add": "Add",
+		"not_found": "Not found 😫",
+		"search": "Search..."
 	},
 	"Settings": {
 		"title": "Settings",

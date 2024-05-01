@@ -1,6 +1,7 @@
 'use client'
 
 import {Pencil, Trash2} from 'lucide-react'
+import {useTranslations} from 'next-intl'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import {PaginationSkeleton} from '@/components/pagination/skeleton'
@@ -12,6 +13,8 @@ import {SearchSkeleton} from '@/modules/exercises/search/skeleton'
 import {ExercisesSkeleton} from '@/modules/exercises/skeleton'
 
 export const Exercises = () => {
+	const t = useTranslations('Exercises')
+
 	const dispatch = useAppDispatch()
 	const {page, search} = useAppSelector(state => state.exercise)
 
@@ -30,7 +33,7 @@ export const Exercises = () => {
 					<Button
 						variant={'outline'}
 						onClick={() => dispatch(exerciseActions.setModal({action: 'create'}))}>
-						Add
+						{t('add')}
 					</Button>
 				</div>
 				<div className={'grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6 order-2'}>
@@ -72,7 +75,7 @@ export const Exercises = () => {
 							</div>
 						))
 					) : (
-						<p className={'text-xl'}>Not found! 😫</p>
+						<p className={'text-xl'}>{t('not_found')}</p>
 					)}
 				</div>
 				<div className={'sm:order-3'}>

@@ -62,6 +62,7 @@ PaginationButton.displayName = 'PaginationButton'
 
 const PaginationPrevious = ({
 	className,
+	children,
 	...props
 }: React.ComponentProps<typeof PaginationButton>) => (
 	<PaginationButton
@@ -70,18 +71,18 @@ const PaginationPrevious = ({
 		className={cn('gap-1 pl-2.5', className)}
 		{...props}>
 		<ChevronLeft className='h-4 w-4' />
-		<span className={'hidden sm:block'}>Previous</span>
+		<span className={'hidden sm:block'}>{children}</span>
 	</PaginationButton>
 )
 PaginationPrevious.displayName = 'PaginationPrevious'
 
-const PaginationNext = ({className, ...props}: React.ComponentProps<typeof PaginationButton>) => (
+const PaginationNext = ({className, children, ...props}: React.ComponentProps<typeof PaginationButton>) => (
 	<PaginationButton
 		aria-label='Go to next page'
 		size='default'
 		className={cn('gap-1 pr-2.5', className)}
 		{...props}>
-		<span className={'hidden sm:block'}>Next</span>
+		<span className={'hidden sm:block'}>{children}</span>
 		<ChevronRight className='h-4 w-4' />
 	</PaginationButton>
 )
