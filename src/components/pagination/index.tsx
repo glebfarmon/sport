@@ -54,11 +54,7 @@ const Pagination = memo(({lastPage}: {lastPage: number}) => {
 					)
 				)}
 				<PaginationItem>
-					<PaginationButton
-						onClick={setPage(page)}
-						isActive>
-						{page}
-					</PaginationButton>
+					<PaginationButton isActive>{page}</PaginationButton>
 				</PaginationItem>
 				{page + 2 <= lastPage ? (
 					<>
@@ -73,7 +69,7 @@ const Pagination = memo(({lastPage}: {lastPage: number}) => {
 						</PaginationItem>
 					</>
 				) : (
-					page + 2 < lastPage && (
+					page + 1 <= lastPage && (
 						<PaginationItem>
 							<PaginationButton onClick={setPage(lastPage)}>{lastPage}</PaginationButton>
 						</PaginationItem>
