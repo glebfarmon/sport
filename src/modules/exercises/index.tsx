@@ -16,7 +16,8 @@ export const Exercises = () => {
 	const t = useTranslations('Exercises')
 
 	const dispatch = useAppDispatch()
-	const {page, search} = useAppSelector(state => state.exercise)
+	const page = useAppSelector(state => state.exercise.page)
+	const search = useAppSelector(state => state.exercise.search)
 
 	const {data: exercises, isFetching} = useGetExercisesQuery({page, search})
 	const isDelayedFetching = useDelayedFetching(isFetching)
