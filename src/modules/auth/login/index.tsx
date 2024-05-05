@@ -1,11 +1,11 @@
 'use client'
 
 import {useTranslations} from 'next-intl'
-import {Link} from '@/hooks'
 import {Button} from '@/components/ui/button'
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 import {Input} from '@/components/ui/input'
 import {PAGES} from '@/constants/pages'
+import {Link} from '@/hooks'
 import {useForm} from '@/modules/auth/login/form/use-form'
 
 export const Login = () => {
@@ -21,7 +21,7 @@ export const Login = () => {
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
 						className={'mt-6 space-y-4 rounded-md border border-input p-4'}>
-						{formData.map(({property, placeholder, type, autocomplete}, i) => (
+						{formData.map(({property, properties}, i) => (
 							<FormField
 								key={i}
 								control={form.control}
@@ -32,9 +32,7 @@ export const Login = () => {
 										<FormControl>
 											<Input
 												className={'input-autofill'}
-												placeholder={placeholder}
-												type={type}
-												autoComplete={autocomplete}
+												{...properties}
 												{...field}
 											/>
 										</FormControl>
@@ -44,10 +42,15 @@ export const Login = () => {
 							/>
 						))}
 						<div className={'flex flex-col gap-y-2 sm:flex-row sm:justify-between'}>
-							<Button type={'submit'}>{t('Form.login')}</Button>
+							<Button
+								type={'submit'}
+								disabled={form.formState.isSubmitting}>
+								{t('Form.login')}
+							</Button>
 							<Button
 								variant={'outline'}
 								type={'button'}
+								disabled={form.formState.isSubmitting}
 								asChild>
 								<Link href={PAGES.REGISTER}>{t('Form.register')}</Link>
 							</Button>

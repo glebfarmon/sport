@@ -7,16 +7,16 @@ import {useLoginMutation} from '@/store/api/auth.api'
 import type {TFormSchema, TOutputFormSchema} from '@/modules/auth/login/form/use-form-schema'
 
 export const useSubmit = (formSchema: TFormSchema) => {
-	const t = useTranslations('Auth')
+	const t = useTranslations('Auth.Login')
 	const [loginUser] = useLoginMutation()
 	const {push} = useRouter()
 
 	return useCallback(
-		(data: TOutputFormSchema) => {
-			loginUser(data)
+		async (data: TOutputFormSchema) => {
+			await loginUser(data)
 				.unwrap()
 				.then(() => {
-					toast({description: t('Login.success')})
+					toast({description: t('success')})
 					push(PAGES.ROUTINES)
 				})
 		},

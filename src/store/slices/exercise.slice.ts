@@ -29,5 +29,5 @@ export const exerciseSlice = createSlice({
 	}
 })
 
-export const exerciseActions = exerciseSlice.actions
+export const {setModal, setPage, setSearch} = exerciseSlice.actions
 export const exerciseReducer = exerciseSlice.reducer

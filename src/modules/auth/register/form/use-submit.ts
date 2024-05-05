@@ -24,7 +24,7 @@ export const useSubmit = (formSchema: TFormSchema) => {
 				})
 			}
 
-			registerUser({full_name, username, password, token})
+			await registerUser({full_name, username, password, token})
 				.unwrap()
 				.then(() => {
 					toast({description: t('Auth.Register.success')})

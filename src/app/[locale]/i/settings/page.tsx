@@ -1,7 +1,7 @@
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server'
 import {IParamsLocale, ISearchParams} from '@/models'
 import {Settings} from '@/modules/settings'
-import {parseTab} from '@/modules/settings/schema'
+import {parseTab} from '@/app/[locale]/i/settings/schema'
 
 export const generateMetadata = async ({params: {locale}}: IParamsLocale) => {
 	const t = await getTranslations({locale, namespace: 'Settings'})

@@ -1,5 +1,5 @@
 import {valibotResolver} from '@hookform/resolvers/valibot'
-import type {HTMLInputTypeAttribute} from 'react'
+import type {DetailedHTMLProps} from 'react'
 import {useForm as useReactForm} from 'react-hook-form'
 import {
 	type TOutputFormSchema,
@@ -9,15 +9,13 @@ import {useSubmit} from '@/modules/settings/account/form/use-submit'
 
 interface IFormData {
 	property: keyof TOutputFormSchema
-	placeholder: string
-	type: HTMLInputTypeAttribute
-	autocomplete: HTMLInputElement['autocomplete']
+	properties: DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 }
 
 const formData: IFormData[] = [
-	{property: 'full_name', placeholder: 'Troy Walker', type: 'text', autocomplete: 'name'},
-	{property: 'username', placeholder: 'fernstalk', type: 'text', autocomplete: 'username'},
-	{property: 'password', placeholder: '123456', type: 'password', autocomplete: 'current-password'}
+	{property: 'full_name', properties:{placeholder: 'Troy Walker', type: 'text', autoComplete: 'name'}},
+	{property: 'username', properties:{placeholder: 'fernstalk', type: 'text', autoComplete: 'username'}},
+	{property: 'password', properties:{placeholder: '123456', type: 'password', autoComplete: 'current-password'}}
 ]
 
 export const useForm = () => {

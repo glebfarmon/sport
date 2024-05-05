@@ -17,7 +17,7 @@ const SettingsPassword = () => {
 				className={'space-y-4 rounded-md border border-input p-6'}>
 				<h3 className={'font-semibold leading-none tracking-tight'}>{t('title')}</h3>
 				<p className={'text-sm text-muted-foreground'}>{t('subtitle')}</p>
-				{formData.map(({property, placeholder, type, autocomplete}, i) => (
+				{formData.map(({property, properties}, i) => (
 					<FormField
 						key={i}
 						control={form.control}
@@ -28,9 +28,7 @@ const SettingsPassword = () => {
 								<FormControl>
 									<Input
 										className={'input-autofill'}
-										placeholder={placeholder}
-										type={type}
-										autoComplete={autocomplete}
+										{...properties}
 										{...field}
 									/>
 								</FormControl>
@@ -41,7 +39,8 @@ const SettingsPassword = () => {
 				))}
 				<Button
 					className={'w-full sm:w-auto'}
-					type={'submit'}>
+					type={'submit'}
+					disabled={form.formState.isSubmitting}>
 					{t('save')}
 				</Button>
 			</form>

@@ -1,29 +1,32 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import {Dialog, DialogContent} from '@/components/ui/dialog'
-import {exerciseActions} from '@/store/slices/exercise.slice'
+import {setModal} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector} from '@/hooks'
-import LoadEditModal from '@/modules/exercises/modals/edit/load'
+import {CreateModal, DeleteModal, EditModal} from '@/modules/exercises/modals/dynamic-loaded'
 
 const Modal = () => {
-	const {modal} = useAppSelector(state => state.exercise)
+	const modal = useAppSelector(state => state.exercise.modal)
 	const dispatch = useAppDispatch()
 
 	return (
 		<Dialog
 			open={!!modal.action}
-			onOpenChange={() => dispatch(exerciseActions.setModal({action: null}))}>
+			onOpenChange={() => dispatch(setModal({action: null}))}>
 			<DialogContent className={'sm:max-w-[425px]'}>
-				{modal.action === 'edit' && modal.exercise && <EditModal exercise={modal.exercise} />}
+				{modal.action !== null &&
+					{
+						create: modal.action === 'create' && <CreateModal />,
+						edit: modal.action === 'edit' && modal.exercise && (
+							<EditModal exercise={modal.exercise} />
+						),
+						delete: modal.action === 'delete' && modal.exercise && (
+							<DeleteModal exercise={modal.exercise} />
+						)
+					}[modal.action]}
 			</DialogContent>
 		</Dialog>
 	)
 }
 
 export default Modal
-
-const EditModal = dynamic(() => import('@/modules/exercises/modals/edit'), {
-	ssr: false,
-	loading: () => <LoadEditModal />
-})

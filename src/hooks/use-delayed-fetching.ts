@@ -1,8 +1,12 @@
 'use client'
 
 import {useEffect, useRef, useState} from 'react'
+import {config} from '@/config'
 
-export const useDelayedFetching = (isFetching: boolean, defaultWaitTime: number = 500) => {
+export const useDelayedFetching = (
+	isFetching: boolean,
+	defaultWaitTime: number = config.min_fetching_time_in_ms
+) => {
 	const [isLoading, setLoading] = useState(isFetching)
 	const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
 	const startTimeRef = useRef<number>()

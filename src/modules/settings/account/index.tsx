@@ -11,15 +11,17 @@ import {mainApi} from '@/store/api/main.api'
 import {useAppDispatch} from '@/hooks'
 import {useForm} from '@/modules/settings/account/form/use-form'
 import {useInitialData} from '@/modules/settings/account/form/use-initial-data'
+import {AccountSkeleton} from '@/modules/settings/account/skeleton'
 
 const SettingsAccount = () => {
 	const t = useTranslations('Settings.Tabs.Account')
 	const {formData, form, onSubmit} = useForm()
 	const {push} = useRouter()
-	const [logout] = useLogoutMutation()
+	const [logout, {isLoading}] = useLogoutMutation()
 	const dispatch = useAppDispatch()
 
-	useInitialData(form.reset)
+	const isInitialLoaded = useInitialData(form.reset)
+	if (!isInitialLoaded) return <AccountSkeleton />
 
 	return (
 		<Form {...form}>
@@ -28,7 +30,7 @@ const SettingsAccount = () => {
 				className={'space-y-4 rounded-md border border-input p-6'}>
 				<h3 className={'font-semibold leading-none tracking-tight'}>{t('title')}</h3>
 				<p className={'text-sm text-muted-foreground'}>{t('subtitle')}</p>
-				{formData.map(({property, placeholder, type, autocomplete}, i) => (
+				{formData.map(({property, properties}, i) => (
 					<FormField
 						key={i}
 						control={form.control}
@@ -39,9 +41,7 @@ const SettingsAccount = () => {
 								<FormControl>
 									<Input
 										className={'input-autofill'}
-										placeholder={placeholder}
-										type={type}
-										autoComplete={autocomplete}
+										{...properties}
 										{...field}
 									/>
 								</FormControl>
@@ -51,10 +51,15 @@ const SettingsAccount = () => {
 					/>
 				))}
 				<div className={'flex flex-col gap-y-2 sm:flex-row sm:justify-between'}>
-					<Button type={'submit'}>{t('save')}</Button>
+					<Button
+						type={'submit'}
+						disabled={isLoading || form.formState.isSubmitting}>
+						{t('save')}
+					</Button>
 					<Button
 						variant={'outline'}
 						type={'button'}
+						disabled={isLoading || form.formState.isSubmitting}
 						onClick={() => {
 							logout().then(() => {
 								push(PAGES.LOGIN)

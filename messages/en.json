@@ -7,11 +7,23 @@
 		"full_name": "Please enter both firstname and lastname",
 		"strict": "Use Latin, numbers and some special characters",
 		"recaptcha": "Verification failed, please try again",
-		"required": "{property} is required"
+		"required": "{property} is required",
+		"image_required": "Please select an image file",
+		"image_type": "Please select a {property} file",
+		"image_max_size": "Please select a file smaller than {property}"
 	},
 	"Pagination": {
 		"next": "Next",
 		"prev": "Prev"
+	},
+	"Navigation": {
+		"Aria": {
+			"routines": "Routines",
+			"exercises": "Exercises",
+			"history": "History",
+			"progress": "Progress",
+			"settings": "Settings"
+		}
 	},
 	"Auth": {
 		"Login": {
@@ -50,7 +62,38 @@
 		"title": "Exercises",
 		"add": "Add",
 		"not_found": "Not found 😫",
-		"search": "Search..."
+		"search": "Search...",
+		"Aria": {
+			"edit": "Edit",
+			"delete": "Delete"
+		},
+		"Form": {
+			"name": "Name",
+			"bodyPart": "Body part",
+			"description": "Description",
+			"image": "Image",
+			"videoUrl": "Video URL",
+			"isPublic": "Public",
+			"Create": {
+				"title": "Create exercise",
+				"description": "Make your new exercise here. Click create when you're done.",
+				"action": "Create",
+				"success": "Successfully created"
+			},
+			"Edit": {
+				"title": "Edit exercise",
+				"description": "Make changes to your exercise here. Click save when you're done.",
+				"action": "Save changes",
+				"success": "Successfully edited"
+			},
+			"Delete": {
+				"title": "Delete exercise",
+				"description": "Make sure you want to delete {property}. This action cannot be undone.",
+				"action": "Delete",
+				"cancel": "Cancel",
+				"success": "Successfully deleted"
+			}
+		}
 	},
 	"Settings": {
 		"title": "Settings",

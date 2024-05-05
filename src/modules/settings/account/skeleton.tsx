@@ -1,6 +1,6 @@
 import {Skeleton} from '@/components/ui/skeleton'
 
-export const SkeletonAccount = () => {
+export const AccountSkeleton = () => {
 	return (
 		<div className={'w-full space-y-4 rounded-md border border-input p-6'}>
 			<Skeleton className={'h-[20px] w-[80px]'} />

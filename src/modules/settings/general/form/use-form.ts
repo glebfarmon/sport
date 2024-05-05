@@ -12,7 +12,7 @@ import {
 interface IFormData {
 	property: keyof TOutputFormSchema
 	content: string[]
-	func: (args?: any) => unknown
+	func: (arg: string) => void
 }
 
 export const useForm = () => {

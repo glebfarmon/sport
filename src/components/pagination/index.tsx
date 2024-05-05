@@ -1,7 +1,7 @@
 'use client'
 
 import {useTranslations} from 'next-intl'
-import {memo, useCallback} from 'react'
+import {type MouseEventHandler} from 'react'
 import {
 	PaginationButton,
 	Pagination as PaginationContainer,
@@ -11,24 +11,21 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/components/ui/pagination'
-import {exerciseActions} from '@/store/slices/exercise.slice'
-import {useAppDispatch, useAppSelector} from '@/hooks'
 
-const Pagination = memo(({lastPage}: {lastPage: number}) => {
+interface IPagination {
+	page: number
+	lastPage: number
+	setPage: (e: number) => MouseEventHandler<HTMLButtonElement> | undefined
+}
+
+const Pagination = ({page, setPage, lastPage}: IPagination) => {
 	const t = useTranslations('Pagination')
-
-	const page = useAppSelector(state => state.exercise.page)
-	const dispatch = useAppDispatch()
-
-	const setPage = useCallback((page: number) => {
-		return () => dispatch(exerciseActions.setPage(page))
-	}, [])
-
 	return (
 		<PaginationContainer>
 			<PaginationContent>
 				<PaginationItem>
 					<PaginationPrevious
+						aria-label={t('prev')}
 						disabled={page - 1 <= 0}
 						onClick={setPage(page - 1)}>
 						{t('prev')}
@@ -37,46 +34,75 @@ const Pagination = memo(({lastPage}: {lastPage: number}) => {
 				{page - 2 > 0 ? (
 					<>
 						<PaginationItem>
-							<PaginationButton onClick={setPage(1)}>1</PaginationButton>
+							<PaginationButton
+								key={1}
+								onClick={setPage(1)}>
+								1
+							</PaginationButton>
 						</PaginationItem>
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
 						<PaginationItem>
-							<PaginationButton onClick={setPage(page - 1)}>{page - 1}</PaginationButton>
+							<PaginationButton
+								key={page - 1}
+								onClick={setPage(page - 1)}>
+								{page - 1}
+							</PaginationButton>
 						</PaginationItem>
 					</>
 				) : (
 					page - 1 > 0 && (
 						<PaginationItem>
-							<PaginationButton onClick={setPage(page - 1)}>{page - 1}</PaginationButton>
+							<PaginationButton
+								key={page - 1}
+								onClick={setPage(page - 1)}>
+								{page - 1}
+							</PaginationButton>
 						</PaginationItem>
 					)
 				)}
 				<PaginationItem>
-					<PaginationButton isActive>{page}</PaginationButton>
+					<PaginationButton
+						key={page}
+						isActive>
+						{page}
+					</PaginationButton>
 				</PaginationItem>
 				{page + 2 <= lastPage ? (
 					<>
 						<PaginationItem>
-							<PaginationButton onClick={setPage(page + 1)}>{page + 1}</PaginationButton>
+							<PaginationButton
+								key={page + 1}
+								onClick={setPage(page + 1)}>
+								{page + 1}
+							</PaginationButton>
 						</PaginationItem>
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
 						<PaginationItem>
-							<PaginationButton onClick={setPage(lastPage)}>{lastPage}</PaginationButton>
+							<PaginationButton
+								key={lastPage}
+								onClick={setPage(lastPage)}>
+								{lastPage}
+							</PaginationButton>
 						</PaginationItem>
 					</>
 				) : (
 					page + 1 <= lastPage && (
 						<PaginationItem>
-							<PaginationButton onClick={setPage(lastPage)}>{lastPage}</PaginationButton>
+							<PaginationButton
+								key={lastPage}
+								onClick={setPage(lastPage)}>
+								{lastPage}
+							</PaginationButton>
 						</PaginationItem>
 					)
 				)}
 				<PaginationItem>
 					<PaginationNext
+						aria-label={t('next')}
 						disabled={page + 1 > lastPage}
 						onClick={setPage(page + 1)}>
 						{t('next')}
@@ -85,6 +111,6 @@ const Pagination = memo(({lastPage}: {lastPage: number}) => {
 			</PaginationContent>
 		</PaginationContainer>
 	)
-})
+}
 
 export default Pagination
