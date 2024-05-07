@@ -1,4 +1,4 @@
-import {CreateButton, Modal, Search} from '@/modules/exercises/dynamic-impors'
+import {CreateButton, Modal, Search} from '@/modules/exercises/dynamic-imports'
 import {PaginationContainer} from '@/modules/exercises/pagination-container'
 import {Records} from '@/modules/exercises/records'
 

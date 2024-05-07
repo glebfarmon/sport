@@ -1,5 +1,3 @@
-'use client'
-
 import {DialogFooter, DialogHeader} from '@/components/ui/dialog'
 import {Skeleton} from '@/components/ui/skeleton'
 

@@ -5,7 +5,7 @@ import {PaginationSkeleton} from '@/components/pagination/skeleton'
 import {useGetExercisesQuery} from '@/store/api/exercise.api'
 import {setPage as setStorePage} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector} from '@/hooks/use-redux'
-import {Pagination} from '@/modules/exercises/dynamic-impors'
+import {Pagination} from '@/modules/exercises/dynamic-imports'
 
 export const PaginationContainer = () => {
 	const dispatch = useAppDispatch()
@@ -28,5 +28,3 @@ export const PaginationContainer = () => {
 		/>
 	)
 }
-
-//CHECK RERENDERS

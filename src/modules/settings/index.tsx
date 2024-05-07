@@ -6,7 +6,7 @@ import {
 	SettingsAccount,
 	SettingsGeneral,
 	SettingsPassword
-} from '@/modules/settings/tabs/dynamic-impors'
+} from '@/modules/settings/tabs/dynamic-imports'
 
 export const Settings = ({tab}: ISettingsProps) => {
 	return (
