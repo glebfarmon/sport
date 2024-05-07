@@ -1,9 +1,11 @@
+'use client'
+
 import {useCallback} from 'react'
 import {PaginationSkeleton} from '@/components/pagination/skeleton'
 import {useGetExercisesQuery} from '@/store/api/exercise.api'
 import {setPage as setStorePage} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector} from '@/hooks/use-redux'
-import {Pagination} from '@/modules/exercises/dynamic-loaded'
+import {Pagination} from '@/modules/exercises/dynamic-impors'
 
 export const PaginationContainer = () => {
 	const dispatch = useAppDispatch()
@@ -26,3 +28,5 @@ export const PaginationContainer = () => {
 		/>
 	)
 }
+
+//CHECK RERENDERS

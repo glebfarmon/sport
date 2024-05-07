@@ -1,6 +1,4 @@
-'use client'
-
-import {CreateButton, Modal, Search} from '@/modules/exercises/dynamic-loaded'
+import {CreateButton, Modal, Search} from '@/modules/exercises/dynamic-impors'
 import {PaginationContainer} from '@/modules/exercises/pagination-container'
 import {Records} from '@/modules/exercises/records'
 

@@ -3,7 +3,7 @@
 import {Dialog, DialogContent} from '@/components/ui/dialog'
 import {setModal} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector} from '@/hooks'
-import {CreateModal, DeleteModal, EditModal} from '@/modules/exercises/modals/dynamic-loaded'
+import {CreateModal, DeleteModal, EditModal} from '@/modules/exercises/modals/dynamic-impors'
 
 const Modal = () => {
 	const modal = useAppSelector(state => state.exercise.modal)

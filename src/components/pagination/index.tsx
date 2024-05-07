@@ -1,7 +1,7 @@
 'use client'
 
 import {useTranslations} from 'next-intl'
-import {type MouseEventHandler} from 'react'
+import {memo, type MouseEventHandler} from 'react'
 import {
 	PaginationButton,
 	Pagination as PaginationContainer,
@@ -18,7 +18,7 @@ interface IPagination {
 	setPage: (e: number) => MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-const Pagination = ({page, setPage, lastPage}: IPagination) => {
+const Pagination = memo(({page, setPage, lastPage}: IPagination) => {
 	const t = useTranslations('Pagination')
 	return (
 		<PaginationContainer>
@@ -111,6 +111,6 @@ const Pagination = ({page, setPage, lastPage}: IPagination) => {
 			</PaginationContent>
 		</PaginationContainer>
 	)
-}
+})
 
 export default Pagination
