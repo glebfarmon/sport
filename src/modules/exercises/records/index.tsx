@@ -30,6 +30,7 @@ export const Records = () => {
 			className={
 				'group relative rounded-lg border-2 border-dotted p-3 transition-colors hover:bg-secondary'
 			}
+			onClick={() => dispatch(setModal({action: 'info'}))}
 			key={exercise.id}>
 			<p className={'text-lg font-bold'}>{exercise.name}</p>
 			<p className={'text-sm text-muted-foreground'}>{exercise.bodyPart}</p>
@@ -42,13 +43,19 @@ export const Records = () => {
 						id={exercise.id}
 						aria-label={t('Aria.edit')}>
 						<Pencil
-							onClick={() => dispatch(setModal({action: 'edit', exercise}))}
+							onClick={e => {
+								e.stopPropagation()
+								dispatch(setModal({action: 'edit', exercise}))
+							}}
 							size={16}
 						/>
 					</button>
 					<button aria-label={t('Aria.delete')}>
 						<Trash2
-							onClick={() => dispatch(setModal({action: 'delete', exercise}))}
+							onClick={e => {
+								e.stopPropagation()
+								dispatch(setModal({action: 'delete', exercise}))
+							}}
 							size={16}
 						/>
 					</button>
