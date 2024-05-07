@@ -54,15 +54,16 @@ export const Records = () => {
 					</button>
 				</div>
 			)}
-			<Image
-				className={'filter-invert m-auto w-full h-auto'}
-				src={`${config.static_api_url}/exercises/${exercise.image}`}
-				height={80}
-				width={220}
-				priority={true}
-				fetchPriority={'high'}
-				alt={'exercise image'}
-			/>
+			<div className={'relative h-[80px]'}>
+				<Image
+					className={'filter-invert m-auto w-auto'}
+					src={`${config.static_api_url}/exercises/${exercise.image}`}
+					fill={true}
+					priority
+					fetchPriority={'high'}
+					alt={'exercise image'}
+				/>
+			</div>
 		</div>
 	))
 }
