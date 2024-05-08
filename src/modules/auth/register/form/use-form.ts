@@ -15,15 +15,15 @@ const formData: IFormData[] = [
 		properties: {placeholder: 'Troy Walker', type: 'text', autoComplete: 'name'}
 	},
 	{
-		property: 'full_name',
+		property: 'username',
 		properties: {placeholder: 'fernstalk', type: 'text', autoComplete: 'username'}
 	},
 	{
-		property: 'full_name',
+		property: 'password',
 		properties: {placeholder: '123456', type: 'password', autoComplete: 'new-password'}
 	},
 	{
-		property: 'full_name',
+		property: 'repeat_password',
 		properties: {
 			property: 'repeat_password',
 			placeholder: '123456',
