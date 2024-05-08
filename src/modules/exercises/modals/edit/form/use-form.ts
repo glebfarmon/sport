@@ -44,7 +44,7 @@ const formData: TFormData[] = [
 	},
 	{
 		property: 'image',
-		properties: {accept: 'image/svg+xml', type: 'file'},
+		properties: {accept: 'image/svg+xml, image/gif', type: 'file'},
 		type: 'file'
 	},
 	{

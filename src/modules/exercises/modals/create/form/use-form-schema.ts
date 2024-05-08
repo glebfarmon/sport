@@ -30,7 +30,7 @@ export const useFormSchema = () => {
 			)
 		]),
 		image: instance(File, t('Errors.image_required'), [
-			mimeType(['image/svg+xml'], t('Errors.image_type', {property: 'SVG'})),
+			mimeType(['image/svg+xml', 'image/gif'], t('Errors.image_type', {property: 'SVG, GIF'})),
 			maxSize(1024 * 1024, t('Errors.image_max_size', {property: '1 MB'}))
 		]),
 		videoUrl: string([

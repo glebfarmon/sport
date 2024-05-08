@@ -4,7 +4,7 @@ import {CreateButtonSkeleton} from '@/modules/exercises/create-button/skeleton'
 import {SearchSkeleton} from '@/modules/exercises/search/skeleton'
 
 export const Search = dynamic(() => import('@/modules/exercises/search'), {
-	ssr: true,
+	ssr: false,
 	loading: () => <SearchSkeleton />
 })
 
