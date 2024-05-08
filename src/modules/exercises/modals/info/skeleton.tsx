@@ -1,3 +1,3 @@
-export const InfoModalSkeleton = () => { 
-	return null	
+export const InfoModalSkeleton = () => {
+	return null
 }

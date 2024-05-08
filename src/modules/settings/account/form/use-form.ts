@@ -13,9 +13,18 @@ interface IFormData {
 }
 
 const formData: IFormData[] = [
-	{property: 'full_name', properties:{placeholder: 'Troy Walker', type: 'text', autoComplete: 'name'}},
-	{property: 'username', properties:{placeholder: 'fernstalk', type: 'text', autoComplete: 'username'}},
-	{property: 'password', properties:{placeholder: '123456', type: 'password', autoComplete: 'current-password'}}
+	{
+		property: 'full_name',
+		properties: {placeholder: 'Troy Walker', type: 'text', autoComplete: 'name'}
+	},
+	{
+		property: 'username',
+		properties: {placeholder: 'fernstalk', type: 'text', autoComplete: 'username'}
+	},
+	{
+		property: 'password',
+		properties: {placeholder: '123456', type: 'password', autoComplete: 'current-password'}
+	}
 ]
 
 export const useForm = () => {

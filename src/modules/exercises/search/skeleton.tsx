@@ -2,8 +2,8 @@ import {Skeleton} from '@/components/ui/skeleton'
 
 export const SearchSkeleton = () => {
 	return (
-		<div className={'flex w-full h-10 rounded-md border border-input items-center px-3'}>
-			<Skeleton className={'w-14 h-4'} />
+		<div className={'flex h-10 w-full items-center rounded-md border border-input px-3'}>
+			<Skeleton className={'h-4 w-14'} />
 		</div>
 	)
 }

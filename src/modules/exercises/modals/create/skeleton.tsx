@@ -5,7 +5,7 @@ export const CreateModalSkeleton = () => {
 	return (
 		<>
 			<DialogHeader>
-				<Skeleton className={'h-[25px] w-[80px] m-auto sm:m-0'} />
+				<Skeleton className={'m-auto h-[25px] w-[80px] sm:m-0'} />
 				<Skeleton className={'h-[40px] w-full'} />
 			</DialogHeader>
 			<div className={'grid gap-4 py-4'}>

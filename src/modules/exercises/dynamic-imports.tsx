@@ -17,7 +17,10 @@ export const Modal = dynamic(() => import('@/modules/exercises/modals'), {
 	ssr: false
 })
 
-export const PaginationContainer = dynamic(() => import('@/modules/exercises/pagination-container'), {
-	ssr: false,
-	loading: () => <PaginationSkeleton />
-})
+export const PaginationContainer = dynamic(
+	() => import('@/modules/exercises/pagination-container'),
+	{
+		ssr: false,
+		loading: () => <PaginationSkeleton />
+	}
+)

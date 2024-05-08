@@ -49,7 +49,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps & {loader?: boole
 					children
 				) : (
 					<>
-						{loader && disabled && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+						{loader && disabled && <Loader2 className='mr-2 size-4 animate-spin' />}
 						{children}
 					</>
 				)}

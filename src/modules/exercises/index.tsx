@@ -9,13 +9,13 @@ export const Exercises = () => {
 			<Modal />
 			<div
 				className={
-					'flex flex-col flex-nowrap min-h-full justify-center m-auto max-w-[850px] gap-y-6 p-6'
+					'm-auto flex min-h-full max-w-[850px] flex-col flex-nowrap justify-center gap-y-6 p-6'
 				}>
 				<div className={'flex gap-x-2'}>
 					<Search />
 					<CreateButton />
 				</div>
-				<div className={'grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6 order-2'}>
+				<div className={'order-2 grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6'}>
 					<Records />
 				</div>
 				<div className={'sm:order-3'}>

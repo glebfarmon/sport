@@ -15,7 +15,7 @@ export const Tabs = ({tab}: ISettingsProps) => {
 	return tabs.map(({title, query}, i) => (
 		<Link
 			className={cn(
-				'cursor-pointer rounded-md sm:px-10 px-6 py-1 transition-all hover:text-foreground',
+				'cursor-pointer rounded-md px-6 py-1 transition-all hover:text-foreground sm:px-10',
 				tab === query && 'bg-background text-foreground'
 			)}
 			href={`?${new URLSearchParams({tab: query})}`}
