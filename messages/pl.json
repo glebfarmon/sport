@@ -80,6 +80,10 @@
 				"action": "Utwórz",
 				"success": "Pomyślnie utworzono"
 			},
+			"Info": {
+				"empty_description": "Brak opisu...",
+				"close": "Zamknij"
+			},
 			"Edit": {
 				"title": "Edytuj ćwiczenie",
 				"description": "Dokonaj zmian w swoim ćwiczeniu tutaj. Kliknij zapisz, gdy skończysz.",

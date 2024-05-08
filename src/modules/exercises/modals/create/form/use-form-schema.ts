@@ -25,8 +25,8 @@ export const useFormSchema = () => {
 		]),
 		description: string([
 			maxLength(
-				255,
-				t('Errors.max_length', {property: t('Exercises.Form.description'), count: 255})
+				1500,
+				t('Errors.max_length', {property: t('Exercises.Form.description'), count: 1500})
 			)
 		]),
 		image: instance(File, t('Errors.image_required'), [

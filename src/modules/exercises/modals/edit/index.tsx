@@ -11,7 +11,7 @@ import {useForm} from '@/modules/exercises/modals/edit/form/use-form'
 import {useInitialData} from '@/modules/exercises/modals/edit/form/use-initial-data'
 
 const EditModal = ({exercise}: {exercise: IExercise}) => {
-	const t = useTranslations('Exercises')
+	const t = useTranslations('Exercises.Form')
 	const {formData, form, onSubmit} = useForm()
 	useInitialData(exercise, form.reset)
 
@@ -19,8 +19,8 @@ const EditModal = ({exercise}: {exercise: IExercise}) => {
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)}>
 				<DialogHeader>
-					<DialogTitle>{t('Form.Edit.title')}</DialogTitle>
-					<DialogDescription>{t('Form.Edit.description')}</DialogDescription>
+					<DialogTitle>{t('Edit.title')}</DialogTitle>
+					<DialogDescription>{t('Edit.description')}</DialogDescription>
 				</DialogHeader>
 				<div className={'grid gap-4 py-4'}>
 					{formData.map(({property, properties, type}, i) => (
@@ -30,7 +30,7 @@ const EditModal = ({exercise}: {exercise: IExercise}) => {
 							name={property}
 							render={({field: {value, onChange, ...rest}}) => (
 								<FormItem>
-									<FormLabel>{t(`Form.${property}`)}</FormLabel>
+									<FormLabel>{t(property)}</FormLabel>
 									<FormControl>
 										{
 											{
@@ -75,7 +75,7 @@ const EditModal = ({exercise}: {exercise: IExercise}) => {
 						loader={true}
 						disabled={form.formState.isSubmitting}
 						type={'submit'}>
-						{t('Form.Edit.action')}
+						{t('Edit.action')}
 					</Button>
 				</DialogFooter>
 			</form>

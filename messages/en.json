@@ -80,6 +80,10 @@
 				"action": "Create",
 				"success": "Successfully created"
 			},
+			"Info": {
+				"empty_description": "No description yet...",
+				"close": "Close"
+			},
 			"Edit": {
 				"title": "Edit exercise",
 				"description": "Make changes to your exercise here. Click save when you're done.",

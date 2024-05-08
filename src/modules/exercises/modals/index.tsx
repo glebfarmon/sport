@@ -1,7 +1,7 @@
 'use client'
 
 import {Dialog, DialogContent} from '@/components/ui/dialog'
-import {setModal} from '@/store/slices/exercise.slice'
+import {closeModal} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector} from '@/hooks'
 import {
 	CreateModal,
@@ -17,7 +17,7 @@ const Modal = () => {
 	return (
 		<Dialog
 			open={!!modal.action}
-			onOpenChange={() => dispatch(setModal({action: null}))}>
+			onOpenChange={() => dispatch(closeModal())}>
 			<DialogContent className={'sm:max-w-[425px]'}>
 				{modal.action !== null &&
 					{

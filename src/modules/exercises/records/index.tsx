@@ -63,10 +63,9 @@ export const Records = () => {
 			)}
 			<div className={'relative h-[110px]'}>
 				<Image
-					className={'filter-invert m-auto w-auto'}
+					className={'filter-invert m-auto w-auto object-fill'}
 					src={`${config.static_api_url}/exercises/${exercise.image}`}
 					fill
-					objectFit={'fill'}
 					priority
 					fetchPriority={'high'}
 					alt={'exercise image'}

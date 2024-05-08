@@ -20,6 +20,9 @@ export const exerciseSlice = createSlice({
 		setModal(state, action: PayloadAction<TExerciseModal>) {
 			state.modal = action.payload
 		},
+		closeModal(state) {
+			state.modal = {action: null}
+		},
 		setSearch(state, action: PayloadAction<string>) {
 			state.search = action.payload
 		},
@@ -29,5 +32,5 @@ export const exerciseSlice = createSlice({
 	}
 })
 
-export const {setModal, setPage, setSearch} = exerciseSlice.actions
+export const {setModal, closeModal, setPage, setSearch} = exerciseSlice.actions
 export const exerciseReducer = exerciseSlice.reducer

@@ -6,7 +6,7 @@ import {DialogDescription, DialogFooter, DialogHeader, DialogTitle} from '@/comp
 import {toast} from '@/components/ui/use-toast'
 import type {IExercise} from '@/models/api'
 import {useDeleteExerciseMutation} from '@/store/api/exercise.api'
-import {setModal} from '@/store/slices/exercise.slice'
+import {closeModal} from '@/store/slices/exercise.slice'
 import {useAppDispatch} from '@/hooks/use-redux'
 
 const DeleteModal = ({exercise}: {exercise: IExercise}) => {
@@ -23,7 +23,7 @@ const DeleteModal = ({exercise}: {exercise: IExercise}) => {
 			<DialogFooter>
 				<Button
 					variant={'secondary'}
-					onClick={() => dispatch(setModal({action: null}))}
+					onClick={() => dispatch(closeModal())}
 					loader={true}
 					disabled={isLoading}>
 					{t('cancel')}
@@ -34,7 +34,7 @@ const DeleteModal = ({exercise}: {exercise: IExercise}) => {
 							.unwrap()
 							.then(() => {
 								toast({description: t('success')})
-								dispatch(setModal({action: null}))
+								dispatch(closeModal())
 							})
 					}
 					loader={true}

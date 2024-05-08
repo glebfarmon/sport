@@ -10,15 +10,15 @@ import {Textarea} from '@/components/ui/textarea'
 import {useForm} from '@/modules/exercises/modals/create/form/use-form'
 
 const CreateModal = () => {
-	const t = useTranslations('Exercises')
+	const t = useTranslations('Exercises.Form')
 	const {formData, form, onSubmit} = useForm()
 
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)}>
 				<DialogHeader>
-					<DialogTitle>{t('Form.Create.title')}</DialogTitle>
-					<DialogDescription>{t('Form.Create.description')}</DialogDescription>
+					<DialogTitle>{t('Create.title')}</DialogTitle>
+					<DialogDescription>{t('Create.description')}</DialogDescription>
 				</DialogHeader>
 				<div className={'grid gap-4 py-4'}>
 					{formData.map(({property, properties, type}, i) => (
@@ -28,7 +28,7 @@ const CreateModal = () => {
 							name={property}
 							render={({field: {value, onChange, ...rest}}) => (
 								<FormItem>
-									<FormLabel>{t(`Form.${property}`)}</FormLabel>
+									<FormLabel>{t(property)}</FormLabel>
 									<FormControl>
 										{
 											{
@@ -76,7 +76,7 @@ const CreateModal = () => {
 					))}
 				</div>
 				<DialogFooter>
-					<Button type={'submit'}>{t('Form.Create.action')}</Button>
+					<Button type={'submit'}>{t('Create.action')}</Button>
 				</DialogFooter>
 			</form>
 		</Form>
