@@ -5,7 +5,7 @@ export const CreateModalSkeleton = () => {
 	return (
 		<>
 			<DialogHeader>
-				<Skeleton className={'h-[25px] w-[80px]'} />
+				<Skeleton className={'h-[25px] w-[80px] m-auto sm:m-0'} />
 				<Skeleton className={'h-[40px] w-full'} />
 			</DialogHeader>
 			<div className={'grid gap-4 py-4'}>
@@ -35,7 +35,7 @@ export const CreateModalSkeleton = () => {
 				</div>
 			</div>
 			<DialogFooter>
-				<Skeleton className={'w-[80px] h-[40px]'} />
+				<Skeleton className={'h-[40px] w-full sm:w-[80px]'} />
 			</DialogFooter>
 		</>
 	)
