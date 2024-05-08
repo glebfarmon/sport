@@ -14,7 +14,7 @@ export const Sidebar = () => {
 	const getVariant = (pagePath: keyof typeof PAGES): ButtonProps['variant'] =>
 		pathname.includes(PAGES[pagePath]) ? 'secondary' : 'outline'
 
-	const isDisabled = pathname === PAGES.LOGIN || pathname === PAGES.REGISTER
+	const isDisabled = pathname.includes(PAGES.LOGIN) || pathname.includes(PAGES.REGISTER)
 
 	return (
 		<aside className={'border-t bg-background p-2 lg:border-0 lg:border-l'}>
