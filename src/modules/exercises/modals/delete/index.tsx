@@ -7,7 +7,7 @@ import {toast} from '@/components/ui/use-toast'
 import type {IExercise} from '@/models/api'
 import {useDeleteExerciseMutation} from '@/store/api/exercise.api'
 import {setModal} from '@/store/slices/exercise.slice'
-import {useAppDispatch} from '@/hooks'
+import {useAppDispatch} from '@/hooks/use-redux'
 
 const DeleteModal = ({exercise}: {exercise: IExercise}) => {
 	const t = useTranslations('Exercises.Form.Delete')
