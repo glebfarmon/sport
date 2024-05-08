@@ -7,7 +7,7 @@ import {config} from '@/config'
 import {useGetExercisesQuery} from '@/store/api/exercise.api'
 import {setModal} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector, useDelayedFetching} from '@/hooks'
-import {ExercisesSkeleton} from '@/modules/exercises/skeleton'
+import {RecordsSkeleton} from '@/modules/exercises/records/skeleton'
 
 export const Records = () => {
 	const t = useTranslations('Exercises')
@@ -20,7 +20,7 @@ export const Records = () => {
 	const isDelayedFetching = useDelayedFetching(isFetching)
 
 	if (isDelayedFetching)
-		return [...Array(exercises?.data.length || 9)].map((_, i) => <ExercisesSkeleton key={i} />)
+		return [...Array(exercises?.data.length || 9)].map((_, i) => <RecordsSkeleton key={i} />)
 
 	if (!exercises?.data || exercises.data.length <= 0)
 		return <p className={'text-xl'}>{t('not_found')}</p>
@@ -30,7 +30,7 @@ export const Records = () => {
 			className={
 				'group relative rounded-lg border-2 border-dotted p-3 transition-colors hover:bg-secondary'
 			}
-			onClick={() => dispatch(setModal({action: 'info'}))}
+			onClick={() => dispatch(setModal({action: 'info', exercise}))}
 			key={exercise.id}>
 			<p className={'text-lg font-bold'}>{exercise.name}</p>
 			<p className={'text-sm text-muted-foreground'}>{exercise.bodyPart}</p>

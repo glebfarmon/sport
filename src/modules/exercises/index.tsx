@@ -1,5 +1,6 @@
-import {CreateButton, Modal, Search} from '@/modules/exercises/dynamic-imports'
-import {PaginationContainer} from '@/modules/exercises/pagination-container'
+'use client'
+
+import {CreateButton, Modal, PaginationContainer, Search} from '@/modules/exercises/dynamic-imports'
 import {Records} from '@/modules/exercises/records'
 
 export const Exercises = () => {

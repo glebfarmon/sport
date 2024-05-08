@@ -21,8 +21,10 @@ const Modal = () => {
 			<DialogContent className={'sm:max-w-[425px]'}>
 				{modal.action !== null &&
 					{
-						info: modal.action === 'info' && <InfoModal />,
 						create: modal.action === 'create' && <CreateModal />,
+						info: modal.action === 'info' && modal.exercise && (
+							<InfoModal exercise={modal.exercise} />
+						),
 						edit: modal.action === 'edit' && modal.exercise && (
 							<EditModal exercise={modal.exercise} />
 						),

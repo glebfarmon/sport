@@ -1,13 +1,13 @@
 'use client'
 
 import {useCallback} from 'react'
+import Pagination from '@/components/pagination'
 import {PaginationSkeleton} from '@/components/pagination/skeleton'
 import {useGetExercisesQuery} from '@/store/api/exercise.api'
 import {setPage as setStorePage} from '@/store/slices/exercise.slice'
 import {useAppDispatch, useAppSelector} from '@/hooks/use-redux'
-import {Pagination} from '@/modules/exercises/dynamic-imports'
 
-export const PaginationContainer = () => {
+const PaginationContainer = () => {
 	const dispatch = useAppDispatch()
 	const page = useAppSelector(state => state.exercise.page)
 	const search = useAppSelector(state => state.exercise.search)
@@ -28,3 +28,5 @@ export const PaginationContainer = () => {
 		/>
 	)
 }
+
+export default PaginationContainer

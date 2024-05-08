@@ -4,14 +4,14 @@ import {DeleteModalSkeleton} from '@/modules/exercises/modals/delete/skeleton'
 import {EditModalSkeleton} from '@/modules/exercises/modals/edit/skeleton'
 import {InfoModalSkeleton} from '@/modules/exercises/modals/info/skeleton'
 
-export const InfoModal = dynamic(() => import('@/modules/exercises/modals/info'), {
-	ssr: false,
-	loading: () => <InfoModalSkeleton />
-})
-
 export const CreateModal = dynamic(() => import('@/modules/exercises/modals/create'), {
 	ssr: false,
 	loading: () => <CreateModalSkeleton />
+})
+
+export const InfoModal = dynamic(() => import('@/modules/exercises/modals/info'), {
+	ssr: false,
+	loading: () => <InfoModalSkeleton />
 })
 
 export const EditModal = dynamic(() => import('@/modules/exercises/modals/edit'), {

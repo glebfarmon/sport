@@ -4,7 +4,7 @@ import {CreateButtonSkeleton} from '@/modules/exercises/create-button/skeleton'
 import {SearchSkeleton} from '@/modules/exercises/search/skeleton'
 
 export const Search = dynamic(() => import('@/modules/exercises/search'), {
-	ssr: false,
+	ssr: true,
 	loading: () => <SearchSkeleton />
 })
 
@@ -17,7 +17,7 @@ export const Modal = dynamic(() => import('@/modules/exercises/modals'), {
 	ssr: false
 })
 
-export const Pagination = dynamic(() => import('@/components/pagination'), {
+export const PaginationContainer = dynamic(() => import('@/modules/exercises/pagination-container'), {
 	ssr: false,
 	loading: () => <PaginationSkeleton />
 })
