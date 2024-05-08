@@ -53,12 +53,14 @@ const SettingsAccount = () => {
 				<div className={'flex flex-col gap-y-2 sm:flex-row sm:justify-between'}>
 					<Button
 						type={'submit'}
+						loader={true}
 						disabled={isLoading || form.formState.isSubmitting}>
 						{t('save')}
 					</Button>
 					<Button
 						variant={'outline'}
 						type={'button'}
+						loader={true}
 						disabled={isLoading || form.formState.isSubmitting}
 						onClick={() => {
 							logout().then(() => {

@@ -72,6 +72,7 @@ const EditModal = ({exercise}: {exercise: IExercise}) => {
 				</div>
 				<DialogFooter>
 					<Button
+						loader={true}
 						disabled={form.formState.isSubmitting}
 						type={'submit'}>
 						{t('Form.Edit.action')}

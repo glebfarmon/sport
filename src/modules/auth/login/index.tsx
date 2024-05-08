@@ -44,13 +44,13 @@ export const Login = () => {
 						<div className={'flex flex-col gap-y-2 sm:flex-row sm:justify-between'}>
 							<Button
 								type={'submit'}
+								loader={true}
 								disabled={form.formState.isSubmitting}>
 								{t('Form.login')}
 							</Button>
 							<Button
 								variant={'outline'}
 								type={'button'}
-								disabled={form.formState.isSubmitting}
 								asChild>
 								<Link href={PAGES.REGISTER}>{t('Form.register')}</Link>
 							</Button>

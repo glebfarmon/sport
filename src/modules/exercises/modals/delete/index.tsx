@@ -26,6 +26,7 @@ const DeleteModal = ({exercise}: {exercise: IExercise}) => {
 				<Button
 					variant={'secondary'}
 					onClick={() => dispatch(setModal({action: null}))}
+					loader={true}
 					disabled={isLoading}>
 					{t('cancel')}
 				</Button>
@@ -38,6 +39,7 @@ const DeleteModal = ({exercise}: {exercise: IExercise}) => {
 								dispatch(setModal({action: null}))
 							})
 					}
+					loader={true}
 					disabled={isLoading}>
 					{t('action')}
 				</Button>

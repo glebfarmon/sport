@@ -40,6 +40,7 @@ const SettingsPassword = () => {
 				<Button
 					className={'w-full sm:w-auto'}
 					type={'submit'}
+					loader={true}
 					disabled={form.formState.isSubmitting}>
 					{t('save')}
 				</Button>
