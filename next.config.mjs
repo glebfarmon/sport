@@ -9,7 +9,7 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				hostname: 'localhost'
+				hostname: process.env.NEXT_PUBLIC_STATIC_HOST || 'localhost'
 			}
 		]
 	}
