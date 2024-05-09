@@ -2,13 +2,11 @@
 
 import {ReactNode, useRef} from 'react'
 import {Provider as ReduxProvider} from 'react-redux'
-import {AppStore, makeStore} from './index'
+import {type AppStore, makeStore} from '@/store'
 
-const StoreProvider = ({children}: {children: ReactNode}) => {
+export const StoreProvider = ({children}: {children: ReactNode}) => {
 	const storeRef = useRef<AppStore>()
 	if (!storeRef.current) storeRef.current = makeStore()
 
 	return <ReduxProvider store={storeRef.current}>{children}</ReduxProvider>
 }
-
-export default StoreProvider

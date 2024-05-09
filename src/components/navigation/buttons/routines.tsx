@@ -1,8 +1,8 @@
 import {LayoutGrid} from 'lucide-react'
-import Link from 'next/link'
 import {forwardRef} from 'react'
 import {Button, ButtonProps} from '@/components/ui/button'
 import {PAGES} from '@/constants'
+import {Link} from '@/hooks'
 import {cn} from '@/utils'
 
 export const Routines = forwardRef<HTMLButtonElement, ButtonProps>(({disabled, ...props}, ref) => {

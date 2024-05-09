@@ -60,9 +60,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
 	themeColor: 'currentColor',
-	maximumScale: 1,
-	minimumScale: 1,
-	userScalable: false
+	//maximumScale: 1,
+	minimumScale: 1
+	//userScalable: false
 }
 
 const RootLayout = ({children}: {children: ReactNode}) => children

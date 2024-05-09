@@ -20,7 +20,7 @@ export const authApi = mainApi.injectEndpoints({
 				body
 			})
 		}),
-		logout: builder.query<void, void>({
+		logout: builder.mutation<void, void>({
 			query: () => ({
 				url: '/auth/logout',
 				credentials: 'include',
@@ -38,5 +38,5 @@ export const authApi = mainApi.injectEndpoints({
 	})
 })
 
-export const {useRegisterMutation, useLoginMutation, useLazyLogoutQuery, useIsAuthorizedQuery} =
+export const {useRegisterMutation, useLoginMutation, useLogoutMutation, useIsAuthorizedQuery} =
 	authApi

@@ -14,4 +14,6 @@ export const useInitialData = (reset: UseFormReset<TOutputFormSchema>) => {
 			})
 		}
 	}, [isSuccess])
+
+	return isSuccess
 }

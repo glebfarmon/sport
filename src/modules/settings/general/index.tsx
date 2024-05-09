@@ -5,7 +5,7 @@ import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from '@/components/ui/select'
 import {useForm} from '@/modules/settings/general/form/use-form'
 
-export const SettingsGeneral = () => {
+const SettingsGeneral = () => {
 	const t = useTranslations('Settings.Tabs.General')
 	const {form, formData} = useForm()
 
@@ -52,3 +52,5 @@ export const SettingsGeneral = () => {
 		</Form>
 	)
 }
+
+export default SettingsGeneral

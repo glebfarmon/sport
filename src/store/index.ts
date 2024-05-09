@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import {mainApi} from '@/store/api/main.api'
+import {exerciseReducer, exerciseSlice} from '@/store/slices/exercise.slice'
 
 const rootReducer = combineReducers({
-	[mainApi.reducerPath]: mainApi.reducer
+	[mainApi.reducerPath]: mainApi.reducer,
+	[exerciseSlice.name]: exerciseReducer
 })
 
 export const makeStore = (initialState = {}) =>

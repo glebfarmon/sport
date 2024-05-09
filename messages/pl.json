@@ -7,7 +7,23 @@
 		"full_name": "Wprowadź imię i nazwisko",
 		"strict": "Używaj alfabetu łacińskiego, cyfr i niektórych znaków specjalnych",
 		"recaptcha": "Weryfikacja nie powiodła się, spróbuj ponownie",
-		"required": "{property} jest wymagane"
+		"required": "{property} jest wymagane",
+		"image_required": "Proszę wybrać plik z obrazem",
+		"image_type": "Proszę wybrać plik z rozszerzeniem {property}",
+		"image_max_size": "Proszę wybrać plik mniejszy niż {property}"
+	},
+	"Pagination": {
+		"next": "Następna",
+		"prev": "Poprzednia"
+	},
+	"Navigation": {
+		"Aria": {
+			"routines": "Plan treningowy",
+			"exercises": "Ćwiczenia",
+			"history": "Historia",
+			"progress": "Postęp",
+			"settings": "Ustawienia"
+		}
 	},
 	"Auth": {
 		"Login": {
@@ -43,7 +59,46 @@
 		"title": "Postęp"
 	},
 	"Exercises": {
-		"title": "Ćwiczenia"
+		"title": "Ćwiczenia",
+		"add": "Dodaj",
+		"not_found": "Nie znaleziono 😫",
+		"search": "Szukaj...",
+		"Aria": {
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		},
+		"Form": {
+			"name": "Nazwa",
+			"bodyPart": "Część ciała",
+			"description": "Opis",
+			"image": "Obrazek",
+			"videoUrl": "URL wideo",
+			"isPublic": "Publiczne",
+			"Create": {
+				"title": "Utwórz ćwiczenie",
+				"description": "Stwórz tutaj swoje ćwiczenie. Kliknij utwórz, gdy będziesz gotowy.",
+				"action": "Utwórz",
+				"success": "Pomyślnie utworzono"
+			},
+			"Info": {
+				"empty_description": "Brak opisu...",
+				"video": "Odpal filmik",
+				"close": "Zamknij"
+			},
+			"Edit": {
+				"title": "Edytuj ćwiczenie",
+				"description": "Dokonaj zmian w swoim ćwiczeniu tutaj. Kliknij zapisz, gdy skończysz.",
+				"action": "Zapisz zmiany",
+				"success": "Pomyślnie edytowane"
+			},
+			"Delete": {
+				"title": "Usuń ćwiczenie",
+				"description": "Upewnij się, że chcesz usunąć {property}. Tej akcji nie można cofnąć.",
+				"action": "Usuń",
+				"cancel": "Anuluj",
+				"success": "Pomyślnie usunięto"
+			}
+		}
 	},
 	"Settings": {
 		"title": "Ustawienia",

@@ -10,8 +10,8 @@ export const useSubmit = (formSchema: TFormSchema, reset: UseFormReset<TOutputFo
 	const [updateUser] = useUpdateUserMutation()
 
 	return useCallback(
-		(data: TOutputFormSchema) => {
-			updateUser(data)
+		async (data: TOutputFormSchema) => {
+			await updateUser(data)
 				.unwrap()
 				.then(() => {
 					toast({description: t('success_save')})
