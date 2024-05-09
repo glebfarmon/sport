@@ -8,6 +8,7 @@ import {DialogDescription, DialogFooter, DialogHeader, DialogTitle} from '@/comp
 import {config} from '@/config'
 import type {IExercise} from '@/models/api'
 import {closeModal} from '@/store/slices/exercise.slice'
+import {Link} from '@/hooks/use-navigation'
 import {useAppDispatch} from '@/hooks/use-redux'
 
 const InfoModal = ({exercise}: {exercise: IExercise}) => {
@@ -40,7 +41,18 @@ const InfoModal = ({exercise}: {exercise: IExercise}) => {
 				)}
 				<hr />
 			</div>
-			<DialogFooter>
+			<DialogFooter className={'flex-col'}>
+				{exercise.videoUrl && (
+					<Button
+						variant={'secondary'}
+						asChild>
+						<Link
+							href={exercise.videoUrl}
+							target={'_blank'}>
+							{t('video')}
+						</Link>
+					</Button>
+				)}
 				<Button onClick={() => dispatch(closeModal())}>{t('close')}</Button>
 			</DialogFooter>
 		</>

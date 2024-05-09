@@ -9,7 +9,7 @@ export const DeleteModalSkeleton = () => {
 				<Skeleton className={'h-[40px] w-full'} />
 			</DialogHeader>
 			<DialogFooter>
-				<Skeleton className={'flex h-[40px] w-full sm:w-[80px]'} />
+				<Skeleton className={'h-[40px] w-full sm:w-[80px]'} />
 				<Skeleton className={'h-[40px] w-full sm:w-[80px]'} />
 			</DialogFooter>
 		</>

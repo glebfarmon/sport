@@ -6,7 +6,7 @@ export const InfoModalSkeleton = () => {
 		<>
 			<DialogHeader>
 				<Skeleton className={'m-auto h-[25px] w-[120px] sm:m-0'} />
-				<Skeleton className={'h-[25px] w-[100px]'} />
+				<Skeleton className={'m-auto h-[25px] w-[100px] sm:m-0'} />
 			</DialogHeader>
 			<div className={'grid gap-4 py-4'}>
 				<Skeleton className={'h-[100px] w-full'} />
@@ -15,7 +15,8 @@ export const InfoModalSkeleton = () => {
 				<hr />
 			</div>
 			<DialogFooter>
-				<Skeleton className={'h-[40px] w-[80px]'} />
+				<Skeleton className={'h-[40px] w-full sm:w-[100px]'} />
+				<Skeleton className={'h-[40px] w-full sm:w-[80px]'} />
 			</DialogFooter>
 		</>
 	)
