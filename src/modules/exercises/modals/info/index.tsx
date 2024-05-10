@@ -12,14 +12,22 @@ import {Link} from '@/hooks/use-navigation'
 import {useAppDispatch} from '@/hooks/use-redux'
 
 const InfoModal = ({exercise}: {exercise: IExercise}) => {
-	const t = useTranslations('Exercises.Form.Info')
+	const t = useTranslations('Exercises')
 	const dispatch = useAppDispatch()
 
 	return (
 		<>
 			<DialogHeader>
 				<DialogTitle>{exercise.name}</DialogTitle>
-				<DialogDescription>{exercise.bodyPart}</DialogDescription>
+				<DialogDescription>
+					{exercise.bodyParts
+						.map((value, i) => {
+							const val = t(`BodyParts.${value}`)
+							if (i > 0) return val.toLowerCase()
+							return val
+						})
+						.join(', ')}
+				</DialogDescription>
 			</DialogHeader>
 			<div className={'grid gap-4 py-4'}>
 				<Image
@@ -37,7 +45,7 @@ const InfoModal = ({exercise}: {exercise: IExercise}) => {
 						<p className={'whitespace-pre-line text-sm'}>{exercise.description}</p>
 					</ScrollableArea>
 				) : (
-					<p className={'text-sm text-primary/50'}>{t('empty_description')}</p>
+					<p className={'text-sm text-primary/50'}>{t('Form.Info.empty_description')}</p>
 				)}
 				<hr />
 			</div>
@@ -49,11 +57,11 @@ const InfoModal = ({exercise}: {exercise: IExercise}) => {
 						<Link
 							href={exercise.videoUrl}
 							target={'_blank'}>
-							{t('video')}
+							{t('Form.Info.video')}
 						</Link>
 					</Button>
 				)}
-				<Button onClick={() => dispatch(closeModal())}>{t('close')}</Button>
+				<Button onClick={() => dispatch(closeModal())}>{t('Form.Info.close')}</Button>
 			</DialogFooter>
 		</>
 	)

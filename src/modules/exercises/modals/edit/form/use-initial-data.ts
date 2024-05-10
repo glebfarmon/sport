@@ -8,7 +8,7 @@ export const useInitialData = (exercise: IExercise, reset: UseFormReset<TOutputF
 		reset({
 			id: exercise.id,
 			name: exercise.name,
-			bodyPart: exercise.bodyPart,
+			bodyParts: exercise.bodyParts.map(bodyPart => ({value: bodyPart})),
 			description: exercise.description ?? '',
 			image: undefined,
 			videoUrl: exercise.videoUrl ?? ''

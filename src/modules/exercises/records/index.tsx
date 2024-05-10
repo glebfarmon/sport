@@ -33,7 +33,15 @@ export const Records = () => {
 			onClick={() => dispatch(setModal({action: 'info', exercise}))}
 			key={exercise.id}>
 			<p className={'text-lg font-bold'}>{exercise.name}</p>
-			<p className={'text-sm text-muted-foreground'}>{exercise.bodyPart}</p>
+			<p className={'truncate text-sm text-muted-foreground'}>
+				{exercise.bodyParts
+					.map((value, i) => {
+						const val = t(`BodyParts.${value}`)
+						if (i > 0) return val.toLowerCase()
+						return val
+					})
+					.join(', ')}
+			</p>
 			{exercise.editable && (
 				<div
 					className={
