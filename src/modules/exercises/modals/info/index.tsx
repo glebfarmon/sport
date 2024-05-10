@@ -37,7 +37,7 @@ const InfoModal = ({exercise}: {exercise: IExercise}) => {
 					width={220}
 					priority
 					fetchPriority={'high'}
-					alt={'exercise image'}
+					alt={exercise.image}
 				/>
 				<hr />
 				{exercise.description ? (
