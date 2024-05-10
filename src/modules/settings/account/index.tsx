@@ -48,6 +48,7 @@ const SettingsAccount = () => {
 					control={form.control}
 					name={'password'}
 					label={t('password')}
+					type={'password'}
 					placeholder={'123456'}
 					autoComplete={'current-password'}
 				/>
