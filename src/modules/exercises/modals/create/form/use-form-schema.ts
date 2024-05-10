@@ -10,7 +10,8 @@ import {
 	minLength,
 	object,
 	Output,
-	string
+	string,
+	url
 } from 'valibot'
 import {bodyPart} from '@/models/api'
 
@@ -37,6 +38,7 @@ export const useFormSchema = () => {
 			maxSize(1024 * 1024, t('Errors.image_max_size', {property: '1 MB'}))
 		]),
 		videoUrl: string([
+			url(t('Errors.url')),
 			maxLength(125, t('Errors.max_length', {property: t('Exercises.Form.videoUrl'), count: 125}))
 		]),
 		isPublic: boolean()

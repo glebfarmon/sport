@@ -10,7 +10,8 @@
 		"required": "{property} jest wymagane",
 		"image_required": "Proszę wybrać plik z obrazem",
 		"image_type": "Proszę wybrać plik z rozszerzeniem {property}",
-		"image_max_size": "Proszę wybrać plik mniejszy niż {property}"
+		"image_max_size": "Proszę wybrać plik mniejszy niż {property}",
+		"url": "Proszę wpisać adres URL"
 	},
 	"Pagination": {
 		"next": "Następna",

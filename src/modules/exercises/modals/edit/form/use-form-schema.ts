@@ -10,7 +10,8 @@ import {
 	object,
 	optional,
 	Output,
-	string
+	string,
+	url
 } from 'valibot'
 import {bodyPart} from '@/models/api'
 
@@ -40,6 +41,7 @@ export const useFormSchema = () => {
 			])
 		),
 		videoUrl: string([
+			url(t('Errors.url')),
 			maxLength(125, t('Errors.max_length', {property: t('Exercises.Form.videoUrl'), count: 125}))
 		])
 	})
