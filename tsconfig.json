@@ -18,7 +18,7 @@
 		"strictNullChecks": true,
 		"strictBindCallApply": false,
 		"noFallthroughCasesInSwitch": false,
-		"types": ["node", "jest", "@testing-library/jest-dom"],
+		"types": ["node"],
 		"plugins": [
 			{
 				"name": "next"
