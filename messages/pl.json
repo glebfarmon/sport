@@ -10,7 +10,8 @@
 		"required": "{property} jest wymagane",
 		"image_required": "Proszę wybrać plik z obrazem",
 		"image_type": "Proszę wybrać plik z rozszerzeniem {property}",
-		"image_max_size": "Proszę wybrać plik mniejszy niż {property}"
+		"image_max_size": "Proszę wybrać plik mniejszy niż {property}",
+		"url": "Proszę wpisać adres URL"
 	},
 	"Pagination": {
 		"next": "Następna",
@@ -66,6 +67,38 @@
 		"Aria": {
 			"edit": "Edytuj",
 			"delete": "Usuń"
+		},
+		"BodyParts": {
+			"ABDOMINALS": "Brzuch",
+			"BACK": "Plecy",
+			"BICEPS": "Biceps",
+			"CALVES": "Łydki",
+			"CHEST": "Klatka piersiowa",
+			"CORE": "Rdzeń",
+			"FOREARM": "Przedramię",
+			"GLUTES": "Pośladki",
+			"HAMSTRING": "Ścięgno udowe",
+			"HAMSTRINGS": "Ścięgna udowe",
+			"HIP_ABDUCTORS": "Mięśnie odwodzące biodra",
+			"LATERAL_DELTOID": "Mięsień naramienny",
+			"LATS": "Mięśnie grzbietu",
+			"LOWER_ABDOMINALS": "Dolne partie brzucha",
+			"LOWER_BACK": "Dolne partie pleców",
+			"MIDDLE_BACK": "Środkowe partie pleców",
+			"NECK": "Szyja",
+			"NECK_EXTENSORS": "Mięśnie prostowniki szyi",
+			"NECK_FLEXORS": "Mięśnie zginacze szyi",
+			"NECK_SIDE_FLEXORS": "Mięśnie boczne szyi",
+			"OBLIQUES": "Mięśnie skośne",
+			"POSTERIOR_DELTOID": "Tylny mięsień naramienny",
+			"QUADRICEPS": "Czworogłowe uda",
+			"REAR_DELTOID": "Mięsień potyliczny barku",
+			"SHOULDER": "Bark",
+			"SHOULDERS": "Barki",
+			"TRAPEZIUS": "Trapez",
+			"TRICEPS": "Triceps",
+			"UPPER_BACK": "Górne partie pleców",
+			"choose": "Wybierz część ciała"
 		},
 		"Form": {
 			"name": "Nazwa",

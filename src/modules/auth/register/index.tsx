@@ -1,16 +1,16 @@
 'use client'
 
 import {useTranslations} from 'next-intl'
+import {FormInput} from '@/components/form/form-input'
 import {Button} from '@/components/ui/button'
-import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
-import {Input} from '@/components/ui/input'
+import {Form} from '@/components/ui/form'
 import {PAGES} from '@/constants/pages'
 import {Link} from '@/hooks'
 import {useForm} from '@/modules/auth/register/form/use-form'
 
 export const Register = () => {
 	const t = useTranslations('Auth')
-	const {formData, form, onSubmit} = useForm()
+	const {form, onSubmit} = useForm()
 
 	return (
 		<div className={'grid h-full place-items-center'}>
@@ -21,26 +21,36 @@ export const Register = () => {
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
 						className={'mt-6 max-w-[400px] space-y-4 rounded-md border border-input p-4'}>
-						{formData.map(({property, properties}, i) => (
-							<FormField
-								key={i}
-								control={form.control}
-								name={property}
-								render={({field}) => (
-									<FormItem>
-										<FormLabel>{t(`Form.${property}`)}</FormLabel>
-										<FormControl>
-											<Input
-												className={'input-autofill'}
-												{...properties}
-												{...field}
-											/>
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-						))}
+						<FormInput
+							control={form.control}
+							name={'full_name'}
+							label={t('Form.full_name')}
+							placeholder={'Troy Walker'}
+							autoComplete={'name'}
+						/>
+						<FormInput
+							control={form.control}
+							name={'username'}
+							label={t('Form.username')}
+							placeholder={'fernstalk'}
+							autoComplete={'username'}
+						/>
+						<FormInput
+							control={form.control}
+							name={'password'}
+							label={t('Form.password')}
+							type={'password'}
+							placeholder={'123456'}
+							autoComplete={'new-password'}
+						/>
+						<FormInput
+							control={form.control}
+							name={'repeat_password'}
+							label={t('Form.repeat_password')}
+							type={'password'}
+							placeholder={'123456'}
+							autoComplete={'new-password'}
+						/>
 						<div className={'flex flex-col gap-y-2 sm:flex-row sm:justify-between'}>
 							<Button
 								type={'submit'}

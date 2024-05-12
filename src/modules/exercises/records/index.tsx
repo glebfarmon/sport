@@ -33,7 +33,15 @@ export const Records = () => {
 			onClick={() => dispatch(setModal({action: 'info', exercise}))}
 			key={exercise.id}>
 			<p className={'text-lg font-bold'}>{exercise.name}</p>
-			<p className={'text-sm text-muted-foreground'}>{exercise.bodyPart}</p>
+			<p className={'truncate text-sm text-muted-foreground'}>
+				{exercise.bodyParts
+					.map((value, i) => {
+						const val = t(`BodyParts.${value}`)
+						if (i > 0) return val.toLowerCase()
+						return val
+					})
+					.join(', ')}
+			</p>
 			{exercise.editable && (
 				<div
 					className={
@@ -61,14 +69,14 @@ export const Records = () => {
 					</button>
 				</div>
 			)}
-			<div className={'relative m-auto h-[110px] max-w-[220px]'}>
+			<div className={'relative m-auto mt-3 h-[110px] max-w-[220px]'}>
 				<Image
 					className={'filter-invert m-auto w-auto object-fill'}
 					src={`${config.static_api_url}/exercises/${exercise.image}`}
 					fill
 					priority
 					fetchPriority={'high'}
-					alt={'exercise image'}
+					alt={exercise.name}
 				/>
 			</div>
 		</div>

@@ -4,7 +4,7 @@
 	"author": "Hlib Ilnytsky",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
@@ -43,7 +43,6 @@
 		"tailwind-merge": "^2.3.0",
 		"tailwindcss-animate": "^1.0.7",
 		"use-debounce": "^10.0.0",
-		"use-overflow": "^1.2.0",
 		"valibot": "^0.30.0"
 	},
 	"devDependencies": {

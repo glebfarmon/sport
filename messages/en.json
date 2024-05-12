@@ -10,7 +10,8 @@
 		"required": "{property} is required",
 		"image_required": "Please select an image file",
 		"image_type": "Please select a {property} file",
-		"image_max_size": "Please select a file smaller than {property}"
+		"image_max_size": "Please select a file smaller than {property}",
+		"url": "Please enter the URL"
 	},
 	"Pagination": {
 		"next": "Next",
@@ -66,6 +67,38 @@
 		"Aria": {
 			"edit": "Edit",
 			"delete": "Delete"
+		},
+		"BodyParts": {
+			"ABDOMINALS": "Abdominals",
+			"BACK": "Back",
+			"BICEPS": "Biceps",
+			"CALVES": "Calves",
+			"CHEST": "Chest",
+			"CORE": "Core",
+			"FOREARM": "Forearm",
+			"GLUTES": "Glutes",
+			"HAMSTRING": "Hamstring",
+			"HAMSTRINGS": "Hamstrings",
+			"HIP_ABDUCTORS": "Hip abductors",
+			"LATERAL_DELTOID": "Lateral deltoid",
+			"LATS": "Lats",
+			"LOWER_ABDOMINALS": "Lower abdominals",
+			"LOWER_BACK": "Lower back",
+			"MIDDLE_BACK": "Middle back",
+			"NECK": "Neck",
+			"NECK_EXTENSORS": "Neck extensors",
+			"NECK_FLEXORS": "Neck flexors",
+			"NECK_SIDE_FLEXORS": "Neck side flexors",
+			"OBLIQUES": "Obliques",
+			"POSTERIOR_DELTOID": "Posterior deltoid",
+			"QUADRICEPS": "Quadriceps",
+			"REAR_DELTOID": "Rear deltoid",
+			"SHOULDER": "Shoulder",
+			"SHOULDERS": "Shoulders",
+			"TRAPEZIUS": "Trapezius",
+			"TRICEPS": "Triceps",
+			"UPPER_BACK": "Upper back",
+			"choose": "Choose body part"
 		},
 		"Form": {
 			"name": "Name",

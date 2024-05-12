@@ -16,7 +16,8 @@ export const useSubmit = (formSchema: TFormSchema) => {
 
 	return useCallback(
 		async (data: TOutputFormSchema) => {
-			await createExercise(data)
+			const bodyParts = data.bodyParts.map(({value}) => value)
+			await createExercise({...data, bodyParts})
 				.unwrap()
 				.then(() => {
 					toast({description: t('success')})

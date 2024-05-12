@@ -1,6 +1,8 @@
 import {useTranslations} from 'next-intl'
 import {
+	array,
 	boolean,
+	enum_,
 	instance,
 	maxLength,
 	maxSize,
@@ -8,8 +10,10 @@ import {
 	minLength,
 	object,
 	Output,
-	string
+	string,
+	url
 } from 'valibot'
+import {bodyPart} from '@/models/api'
 
 export const useFormSchema = () => {
 	const t = useTranslations()
@@ -19,9 +23,9 @@ export const useFormSchema = () => {
 			minLength(2, t('Errors.min_length', {property: t('Exercises.Form.name'), count: 2})),
 			maxLength(25, t('Errors.max_length', {property: t('Exercises.Form.name'), count: 25}))
 		]),
-		bodyPart: string([
-			minLength(2, t('Errors.min_length', {property: t('Exercises.Form.bodyPart'), count: 2})),
-			maxLength(25, t('Errors.max_length', {property: t('Exercises.Form.bodyPart'), count: 25}))
+		bodyParts: array(object({value: enum_(bodyPart, t('Exercises.BodyParts.choose'))}), [
+			minLength(1),
+			maxLength(4)
 		]),
 		description: string([
 			maxLength(
@@ -34,6 +38,7 @@ export const useFormSchema = () => {
 			maxSize(1024 * 1024, t('Errors.image_max_size', {property: '1 MB'}))
 		]),
 		videoUrl: string([
+			url(t('Errors.url')),
 			maxLength(125, t('Errors.max_length', {property: t('Exercises.Form.videoUrl'), count: 125}))
 		]),
 		isPublic: boolean()
